@@ -60,7 +60,7 @@ export async function POST(request) {
 
     await resend.emails.send({
       from: "MATCHdesign Quiz <quiz@yourdomain.com>",
-      to: process.env.CONTACT_EMAIL,
+      to: "andy90d@libero.it",
       replyTo: email,
       subject: `[MATCHdesign] ${diagnosis} — ${name}`,
       html,

@@ -2,9 +2,59 @@
 
 import { useState } from "react";
 
+// ─── TYPES ───────────────────────────────────────────────────────────────────
+
+type PathKey = "founder" | "freelance" | "company";
+type QualifierTag = "email" | "call_online" | "call_phone" | "message" | "any";
+
+interface ScoreMap {
+  [key: string]: number;
+}
+
+interface QuizOption {
+  label: string;
+  scores?: ScoreMap;
+  tag?: QualifierTag;
+}
+
+interface QuizQuestion {
+  id: string;
+  text: string;
+  qualifier?: boolean;
+  options: QuizOption[];
+}
+
+interface Profile {
+  label: string;
+  tag: string;
+  description: string;
+  cta: string;
+}
+
+interface PathConfig {
+  label: string;
+  sublabel: string;
+  questions: QuizQuestion[];
+  profiles: Record<string, Profile>;
+  scoreKeys: string[];
+}
+
+interface AnswerLog {
+  question: string;
+  answer: string;
+  qualifier: boolean;
+}
+
+interface FormData {
+  name: string;
+  email: string;
+  phone: string;
+  note: string;
+}
+
 // ─── DATA ────────────────────────────────────────────────────────────────────
 
-const founderQuestions = [
+const founderQuestions: QuizQuestion[] = [
   {
     id: "f1",
     text: "A che punto sei con il progetto?",
@@ -99,7 +149,7 @@ const founderQuestions = [
   },
 ];
 
-const freelanceQuestions = [
+const freelanceQuestions: QuizQuestion[] = [
   {
     id: "p1",
     text: "Da quanto lavori in autonomia?",
@@ -194,7 +244,7 @@ const freelanceQuestions = [
   },
 ];
 
-const companyQuestions = [
+const companyQuestions: QuizQuestion[] = [
   {
     id: "c1",
     text: "La tua azienda o attività è…",
@@ -309,7 +359,7 @@ const companyQuestions = [
   },
 ];
 
-const founderProfiles = {
+const founderProfiles: Record<string, Profile> = {
   F1: {
     label: "Identità da definire",
     tag: "POSIZIONAMENTO",
@@ -336,7 +386,7 @@ const founderProfiles = {
   },
 };
 
-const freelanceProfiles = {
+const freelanceProfiles: Record<string, Profile> = {
   P1: {
     label: "Presenza da costruire",
     tag: "FONDAMENTA",
@@ -363,7 +413,7 @@ const freelanceProfiles = {
   },
 };
 
-const companyProfiles = {
+const companyProfiles: Record<string, Profile> = {
   A: {
     label: "Brand da costruire",
     tag: "FONDAMENTA",
@@ -390,7 +440,7 @@ const companyProfiles = {
   },
 };
 
-const contactMethodLabels = {
+const contactMethodLabels: Record<QualifierTag, string> = {
   email: "Via email",
   call_online: "Call online",
   call_phone: "Call telefonica / WhatsApp",
@@ -398,7 +448,7 @@ const contactMethodLabels = {
   any: "Nessuna preferenza",
 };
 
-const pathConfig = {
+const pathConfig: Record<PathKey, PathConfig> = {
   founder: {
     label: "Founder / Startup",
     sublabel: "Sto lanciando qualcosa di nuovo",
@@ -425,29 +475,26 @@ const pathConfig = {
 // ─── COMPONENT ───────────────────────────────────────────────────────────────
 
 export default function BrandQuiz() {
-  const [phase, setPhase] = useState("path");
-  const [path, setPath] = useState(null);
+  const [phase, setPhase] = useState<"path" | "quiz" | "result" | "contact">("path");
+  const [path, setPath] = useState<PathKey | null>(null);
   const [currentQ, setCurrentQ] = useState(0);
-  const [scores, setScores] = useState({});
-  const [qualifierTag, setQualifierTag] = useState(null);
-  const [selectedOption, setSelectedOption] = useState(null);
-  const [answersLog, setAnswersLog] = useState([]);
-  const [result, setResult] = useState(null);
+  const [scores, setScores] = useState<ScoreMap>({});
+  const [qualifierTag, setQualifierTag] = useState<QualifierTag | null>(null);
+  const [selectedOption, setSelectedOption] = useState<QuizOption | null>(null);
+  const [answersLog, setAnswersLog] = useState<AnswerLog[]>([]);
+  const [result, setResult] = useState<string | null>(null);
   const [animating, setAnimating] = useState(false);
-  const [formData, setFormData] = useState({ name: "", email: "", phone: "", note: "" });
-  const [submitting, setSubmitting] = useState(false);
+  const [formData, setFormData] = useState<FormData>({ name: "", email: "", phone: "", note: "" });
   const [sent, setSent] = useState(false);
-  const [submitError, setSubmitError] = useState(null);
-  const [hoveredPath, setHoveredPath] = useState(null);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [submitting, setSubmitting] = useState(false);
+  const [hoveredPath, setHoveredPath] = useState<PathKey | null>(null);
 
-  const config = path ? pathConfig[path] : null;
+  const config = path ? pathConfig[path as PathKey] : null;
   const questions = config?.questions || [];
   const q = questions[currentQ];
-  const profile = result && config ? config.profiles[result] : null;
-  const contactMethod = qualifierTag ? contactMethodLabels[qualifierTag] : null;
-  const diagnosticAnswers = answersLog.filter((a) => !a.qualifier);
 
-  function selectPath(p) {
+  function selectPath(p: PathKey) {
     setAnimating(true);
     setTimeout(() => {
       setPath(p);
@@ -456,15 +503,18 @@ export default function BrandQuiz() {
     }, 280);
   }
 
+  function handleSelect(opt: QuizOption) {
+    setSelectedOption(opt);
+  }
+
   function handleNext() {
     if (!selectedOption) return;
-
-    const newLog = [...answersLog, { question: q.text, answer: selectedOption.label, qualifier: !!q.qualifier }];
+    const newScores = { ...scores };
+    const newLog: AnswerLog[] = [...answersLog, { question: q.text, answer: selectedOption.label, qualifier: !!q.qualifier }];
     setAnswersLog(newLog);
 
-    let newScores = { ...scores };
     if (q.qualifier) {
-      setQualifierTag(selectedOption.tag);
+      setQualifierTag(selectedOption.tag ?? null);
     } else {
       Object.entries(selectedOption.scores || {}).forEach(([k, v]) => {
         newScores[k] = (newScores[k] || 0) + v;
@@ -480,8 +530,10 @@ export default function BrandQuiz() {
         setAnimating(false);
       }, 280);
     } else {
-      const keys = config.scoreKeys;
-      const top = keys.reduce((a, b) => (newScores[b] || 0) > (newScores[a] || 0) ? b : a, keys[0]);
+      const keys = config!.scoreKeys;
+      const top = keys.reduce((a: string, b: string) => {
+        return (newScores[b] || 0) > (newScores[a] || 0) ? b : a;
+      }, keys[0]);
       setResult(top);
       setAnimating(true);
       setTimeout(() => {
@@ -491,7 +543,6 @@ export default function BrandQuiz() {
     }
   }
 
-  // ── The only meaningful change vs v4: real fetch to API route ──
   async function handleSubmit() {
     if (!formData.name || !formData.email) return;
     if (qualifierTag === "call_phone" && !formData.phone) return;
@@ -506,27 +557,27 @@ export default function BrandQuiz() {
         body: JSON.stringify({
           ...formData,
           path: config?.label,
+          result,
           profile: profile?.label,
-          profileTag: profile?.tag,
-          contactMethod,
-          answers: diagnosticAnswers,
+          contactMethod: qualifierTag ? contactMethodLabels[qualifierTag] : null,
+          answers: answersLog,
         }),
       });
 
-      if (!res.ok) throw new Error("Errore nell'invio. Riprova.");
+      if (!res.ok) throw new Error("Errore durante l'invio. Riprova.");
       setSent(true);
     } catch (err) {
-      setSubmitError(err.message);
+      const message = err instanceof Error ? err.message : "Errore sconosciuto";
+      setSubmitError(message);
     } finally {
       setSubmitting(false);
     }
   }
 
-  const isSubmitDisabled =
-    submitting ||
-    !formData.name ||
-    !formData.email ||
-    (qualifierTag === "call_phone" && !formData.phone);
+  const profile = result && config ? config.profiles[result] : null;
+  const totalQ = questions.length;
+  const contactMethod = qualifierTag ? contactMethodLabels[qualifierTag as QualifierTag] : null;
+  const diagnosticAnswers = answersLog.filter((a) => !a.qualifier);
 
   return (
     <div style={{
@@ -551,7 +602,7 @@ export default function BrandQuiz() {
         .path-card {
           width: 100%;
           border: 1px solid rgba(244,239,233,0.1);
-          padding: 1.5rem;
+          padding: 1.5rem 1.5rem;
           cursor: pointer;
           transition: all 0.2s ease;
           position: relative;
@@ -672,17 +723,9 @@ export default function BrandQuiz() {
           display: block;
           margin-bottom: 0.5rem;
         }
-
-        .error-msg {
-          font-family: 'DM Sans', sans-serif;
-          font-size: 0.78rem;
-          color: #d9453d;
-          margin-top: 1rem;
-          text-align: right;
-        }
       `}</style>
 
-      {/* Top accent bar */}
+      {/* Top accent */}
       <div style={{ position: "fixed", top: 0, left: 0, right: 0, height: "2px", background: "#d9453d", zIndex: 20 }} />
 
       {/* Logo */}
@@ -690,10 +733,10 @@ export default function BrandQuiz() {
         MATCH<span style={{ color: "#d9453d" }}>design</span>
       </div>
 
-      {/* Grain overlay */}
+      {/* Grain */}
       <div style={{ position: "fixed", inset: 0, backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E")`, pointerEvents: "none", zIndex: 0 }} />
 
-      <div className={`fade-wrap${animating ? " out" : ""}`} style={{ width: "100%", maxWidth: "640px", position: "relative", zIndex: 1 }}>
+      <div className={`fade-wrap ${animating ? "out" : ""}`} style={{ width: "100%", maxWidth: "640px", position: "relative", zIndex: 1 }}>
 
         {/* ── PATH SELECTION ── */}
         {phase === "path" && (
@@ -715,10 +758,10 @@ export default function BrandQuiz() {
             </p>
 
             <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-              {Object.entries(pathConfig).map(([key, cfg]) => (
+              {(Object.entries(pathConfig) as [PathKey, PathConfig][]).map(([key, cfg]) => (
                 <button
                   key={key}
-                  className={`path-card${hoveredPath === key ? " hovered" : ""}`}
+                  className={`path-card ${hoveredPath === key ? "hovered" : ""}`}
                   onMouseEnter={() => setHoveredPath(key)}
                   onMouseLeave={() => setHoveredPath(null)}
                   onClick={() => selectPath(key)}
@@ -742,14 +785,14 @@ export default function BrandQuiz() {
             <div style={{ marginBottom: "2.75rem" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.75rem" }}>
                 <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.62rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#d9453d", fontWeight: 500 }}>
-                  {config.label}
+                  {config!.label}
                 </span>
                 <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.65rem", color: "rgba(244,239,233,0.25)" }}>
-                  {currentQ + 1} / {questions.length}
+                  {currentQ + 1} / {totalQ}
                 </span>
               </div>
               <div style={{ height: "1px", background: "rgba(244,239,233,0.08)" }}>
-                <div className="prog-bar" style={{ height: "1px", background: "#d9453d", width: `${((currentQ + 1) / questions.length) * 100}%` }} />
+                <div className="prog-bar" style={{ height: "1px", background: "#d9453d", width: `${((currentQ + 1) / totalQ) * 100}%` }} />
               </div>
             </div>
 
@@ -766,11 +809,7 @@ export default function BrandQuiz() {
 
             <div style={{ display: "flex", flexDirection: "column", gap: "0.45rem", marginBottom: "2.5rem" }}>
               {q.options.map((opt, i) => (
-                <button
-                  key={i}
-                  className={`opt-btn${selectedOption === opt ? " sel" : ""}`}
-                  onClick={() => setSelectedOption(opt)}
-                >
+                <button key={i} className={`opt-btn ${selectedOption === opt ? "sel" : ""}`} onClick={() => handleSelect(opt)}>
                   <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.7rem", fontWeight: 500, color: selectedOption === opt ? "#d9453d" : "rgba(244,239,233,0.2)", flexShrink: 0, width: "1.2rem", paddingTop: "0.05rem" }}>
                     {String.fromCharCode(65 + i)}
                   </span>
@@ -781,7 +820,7 @@ export default function BrandQuiz() {
 
             <div style={{ display: "flex", justifyContent: "flex-end" }}>
               <button className="next-btn" onClick={handleNext} disabled={!selectedOption}>
-                {currentQ < questions.length - 1 ? "Avanti →" : "Vedi la diagnosi →"}
+                {currentQ < totalQ - 1 ? "Avanti →" : "Vedi la diagnosi →"}
               </button>
             </div>
           </>
@@ -823,12 +862,8 @@ export default function BrandQuiz() {
           <>
             {sent ? (
               <div style={{ textAlign: "center", padding: "3rem 0" }}>
-                <div style={{ width: "44px", height: "44px", border: "1px solid #d9453d", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 2rem", color: "#d9453d", fontSize: "1.1rem" }}>
-                  ✓
-                </div>
-                <h2 style={{ fontFamily: "'Fraunces', serif", fontSize: "1.9rem", fontWeight: 700, color: "#f4efe9", marginBottom: "1rem" }}>
-                  Messaggio ricevuto.
-                </h2>
+                <div style={{ width: "44px", height: "44px", border: "1px solid #d9453d", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 2rem", color: "#d9453d", fontSize: "1.1rem" }}>✓</div>
+                <h2 style={{ fontFamily: "'Fraunces', serif", fontSize: "1.9rem", fontWeight: 700, color: "#f4efe9", marginBottom: "1rem" }}>Messaggio ricevuto.</h2>
                 <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.875rem", color: "rgba(244,239,233,0.4)", fontWeight: 300, lineHeight: 1.7 }}>
                   Ti rispondo entro 48 ore con una prima valutazione.
                 </p>
@@ -836,9 +871,7 @@ export default function BrandQuiz() {
             ) : (
               <>
                 <div style={{ marginBottom: "2.25rem" }}>
-                  <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.65rem", letterSpacing: "0.2em", color: "#d9453d", textTransform: "uppercase", fontWeight: 500, marginBottom: "0.875rem" }}>
-                    Parliamo
-                  </p>
+                  <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.65rem", letterSpacing: "0.2em", color: "#d9453d", textTransform: "uppercase", fontWeight: 500, marginBottom: "0.875rem" }}>Parliamo</p>
                   <h2 style={{ fontFamily: "'Fraunces', serif", fontSize: "clamp(1.4rem, 3.5vw, 2rem)", fontWeight: 700, color: "#f4efe9", lineHeight: 1.2 }}>
                     Conferma e invia la tua diagnosi.
                   </h2>
@@ -847,21 +880,14 @@ export default function BrandQuiz() {
                   </p>
                 </div>
 
-                {/* Answers summary */}
                 <div style={{ border: "1px solid rgba(244,239,233,0.08)", marginBottom: "2rem" }}>
                   <div style={{ padding: "1rem 1.25rem", borderBottom: "1px solid rgba(244,239,233,0.08)", display: "flex", justifyContent: "space-between", alignItems: "center", background: "rgba(217,69,61,0.06)", flexWrap: "wrap", gap: "0.5rem" }}>
                     <div>
-                      <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.58rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#d9453d", display: "block", marginBottom: "0.2rem" }}>
-                        Diagnosi
-                      </span>
-                      <span style={{ fontFamily: "'Fraunces', serif", fontSize: "1.05rem", color: "#f4efe9", fontWeight: 700 }}>
-                        {profile?.label}
-                      </span>
+                      <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.58rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#d9453d", display: "block", marginBottom: "0.2rem" }}>Diagnosi</span>
+                      <span style={{ fontFamily: "'Fraunces', serif", fontSize: "1.05rem", color: "#f4efe9", fontWeight: 700 }}>{profile?.label}</span>
                     </div>
                     <div style={{ textAlign: "right" }}>
-                      <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.62rem", color: "rgba(244,239,233,0.3)", textTransform: "uppercase", letterSpacing: "0.1em", display: "block" }}>
-                        {config?.label}
-                      </span>
+                      <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.62rem", color: "rgba(244,239,233,0.3)", textTransform: "uppercase", letterSpacing: "0.1em", display: "block" }}>{config?.label}</span>
                       {contactMethod && (
                         <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.62rem", color: "rgba(244,239,233,0.22)", textTransform: "uppercase", letterSpacing: "0.1em" }}>
                           {contactMethod}
@@ -869,6 +895,7 @@ export default function BrandQuiz() {
                       )}
                     </div>
                   </div>
+
                   <div style={{ padding: "0.25rem 1.25rem 0.5rem" }}>
                     {diagnosticAnswers.map((item, i) => (
                       <div key={i} className="answer-row">
@@ -883,12 +910,11 @@ export default function BrandQuiz() {
                   </div>
                 </div>
 
-                {/* Form fields */}
                 <div style={{ display: "flex", flexDirection: "column", gap: "1.75rem", marginBottom: "2.5rem" }}>
-                  {[
+                  {([
                     { key: "name", label: "Nome *", placeholder: "Il tuo nome", type: "text" },
                     { key: "email", label: "Email *", placeholder: "La tua email", type: "email" },
-                  ].map((f) => (
+                  ] as { key: keyof FormData; label: string; placeholder: string; type: string }[]).map(f => (
                     <div key={f.key} className="field-wrap">
                       <label>{f.label}</label>
                       <input
@@ -896,11 +922,10 @@ export default function BrandQuiz() {
                         type={f.type}
                         placeholder={f.placeholder}
                         value={formData[f.key]}
-                        onChange={(e) => setFormData({ ...formData, [f.key]: e.target.value })}
+                        onChange={e => setFormData({ ...formData, [f.key]: e.target.value })}
                       />
                     </div>
                   ))}
-
                   {(qualifierTag === "call_phone" || qualifierTag === "message") && (
                     <div className="field-wrap">
                       <label>
@@ -911,11 +936,10 @@ export default function BrandQuiz() {
                         type="tel"
                         placeholder={qualifierTag === "call_phone" ? "Il tuo numero" : "Il tuo numero — per WhatsApp o simili"}
                         value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        onChange={e => setFormData({ ...formData, phone: e.target.value })}
                       />
                     </div>
                   )}
-
                   <div className="field-wrap">
                     <label>Vuoi aggiungere qualcosa? (opzionale)</label>
                     <textarea
@@ -923,16 +947,24 @@ export default function BrandQuiz() {
                       rows={3}
                       placeholder="Contesto extra, urgenza, domande specifiche…"
                       value={formData.note}
-                      onChange={(e) => setFormData({ ...formData, note: e.target.value })}
+                      onChange={e => setFormData({ ...formData, note: e.target.value })}
                       style={{ resize: "none" }}
                     />
                   </div>
                 </div>
 
-                {submitError && <p className="error-msg">{submitError}</p>}
+                {submitError && (
+                  <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.8rem", color: "#d9453d", marginBottom: "1rem", textAlign: "right" }}>
+                    {submitError}
+                  </p>
+                )}
 
                 <div style={{ display: "flex", justifyContent: "flex-end" }}>
-                  <button className="next-btn" onClick={handleSubmit} disabled={isSubmitDisabled}>
+                  <button
+                    className="next-btn"
+                    onClick={handleSubmit}
+                    disabled={submitting || !formData.name || !formData.email || (qualifierTag === "call_phone" && !formData.phone)}
+                  >
                     {submitting ? "Invio in corso…" : "Invia richiesta →"}
                   </button>
                 </div>

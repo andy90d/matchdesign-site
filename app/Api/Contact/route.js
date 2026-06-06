@@ -1,6 +1,7 @@
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
+const CONTACT_EMAIL = 'info.match.design@gmail.com'
 
 export async function POST(request) {
   try {

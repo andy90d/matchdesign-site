@@ -973,6 +973,12 @@ export default function BrandQuiz() {
           </>
         )}
       </div>
+
+        {/* Footer legal */}
+        <div style={{ position: "fixed", bottom: "1.25rem", left: 0, right: 0, display: "flex", justifyContent: "center", gap: "1.5rem", zIndex: 10 }}>
+        <a href="https://www.iubenda.com/privacy-policy/18476717" className="iubenda-white iubenda-noiframe iubenda-embed" title="Privacy Policy" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.62rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(244,239,233,0.25)", textDecoration: "none" }}>Privacy Policy</a>
+        <a href="https://www.iubenda.com/privacy-policy/18476717/cookie-policy" className="iubenda-white iubenda-noiframe iubenda-embed" title="Cookie Policy" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.62rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(244,239,233,0.25)", textDecoration: "none" }}>Cookie Policy</a>
+      </div>
     </div>
   );
 }

@@ -19,7 +19,7 @@ export const metadata = {
   description: "Scopri di cosa ha bisogno il tuo brand. Poche domande, una diagnosi precisa.",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="it" className={`${fraunces.variable} ${dmSans.variable}`}>
       <body>{children}</body>

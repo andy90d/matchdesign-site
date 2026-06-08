@@ -489,6 +489,7 @@ export default function BrandQuiz() {
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [hoveredPath, setHoveredPath] = useState<PathKey | null>(null);
+  const [privacyAccepted, setPrivacyAccepted] = useState(false);
 
   const config = path ? pathConfig[path as PathKey] : null;
   const questions = config?.questions || [];
@@ -952,7 +953,18 @@ export default function BrandQuiz() {
                     />
                   </div>
                 </div>
-
+                    <div style={{ display: "flex", alignItems: "flex-start", gap: "0.75rem", marginBottom: "1rem" }}>
+                <input
+                  type="checkbox"
+                  id="privacy"
+                  checked={privacyAccepted}
+                  onChange={e => setPrivacyAccepted(e.target.checked)}
+                  style={{ marginTop: "0.15rem", accentColor: "#d9453d", cursor: "pointer" }}
+                />
+                <label htmlFor="privacy" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.75rem", fontWeight: 300, color: "rgba(244,239,233,0.4)", lineHeight: 1.6, cursor: "pointer" }}>
+                  Ho letto e accetto la <a href="https://www.iubenda.com/privacy-policy/18476717" target="_blank" rel="noopener noreferrer" style={{ color: "#d9453d", textDecoration: "none" }}>Privacy Policy</a>. Acconsento al trattamento dei miei dati per ricevere una risposta.
+                </label>
+              </div>
                 {submitError && (
                   <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.8rem", color: "#d9453d", marginBottom: "1rem", textAlign: "right" }}>
                     {submitError}
@@ -963,7 +975,7 @@ export default function BrandQuiz() {
                   <button
                     className="next-btn"
                     onClick={handleSubmit}
-                    disabled={submitting || !formData.name || !formData.email || (qualifierTag === "call_phone" && !formData.phone)}
+                    disabled={submitting || !formData.name || !formData.email || (qualifierTag === "call_phone" && !formData.phone) || !privacyAccepted}
                   >
                     {submitting ? "Invio in corso…" : "Invia richiesta →"}
                   </button>

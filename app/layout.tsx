@@ -1,5 +1,5 @@
 import { Fraunces, DM_Sans } from "next/font/google";
-import Script from "next/script"; // <-- Importiamo il componente corretto di Next.js
+import Script from "next/script";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -24,27 +24,44 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="it" className={`${fraunces.variable} ${dmSans.variable}`}>
       <head>
-        {/* 1. Script di configurazione per inizializzare l'oggetto Iubenda prima del widget */}
-        <Script id="iubenda-config" strategy="beforeInteractive">
-          {`
-            var _iub = _iub || [];
-            _iub.csConfiguration = {
-              "askForConsent": true,
-              "lang": "it"
-            };
-          `}
-        </Script>
-        
-        {/* 2. Caricamento del widget reale (Senza virgole di sintassi errate e con chiusura corretta) */}
-        
-        <script 
-          type="text/javascript"
-          src="https://embeds.iubenda.com/widgets/f2cc20d5-bfbe-4c85-880d-6c958cd3c60c.js">
+        {/* 1. Il widget principale di Iubenda (Cookie Banner) */}
+        <Script 
+          id="iubenda-cookie-solution"
+          src="https://embeds.iubenda.com/widgets/f2cc20d5-bfbe-4c85-880d-6c958cd3c60c.js"
           strategy="beforeInteractive"
-        </script>
+        />
       </head>
       <body>
-        {children}
+        {/* Contenuto principale del sito */}
+        <main>
+          {children}
+        </main>
+
+        {/* 2. Link a Privacy e Cookie Policy posizionati in fondo alla pagina */}
+        <footer style={{ padding: "2rem", textAlign: "center", fontSize: "0.875rem" }}>
+          <a 
+            href="https://www.iubenda.com/privacy-policy/18476717" 
+            className="iubenda-black iubenda-noiframe iubenda-embed" 
+            title="Privacy Policy"
+          >
+            Privacy Policy
+          </a>
+          <span style={{ margin: "0 10px" }}>|</span>
+          <a 
+            href="https://www.iubenda.com/privacy-policy/18476717/cookie-policy" 
+            className="iubenda-black iubenda-noiframe iubenda-embed" 
+            title="Cookie Policy"
+          >
+            Cookie Policy
+          </a>
+        </footer>
+
+        {/* 3. Lo script generico di iubenda per far funzionare i popup (caricato una sola volta) */}
+        <Script 
+          id="iubenda-policy-script"
+          src="https://cdn.iubenda.com/iubenda.js" 
+          strategy="lazyOnload" 
+        />
       </body>
     </html>
   );

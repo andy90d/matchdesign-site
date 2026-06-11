@@ -40,6 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script 
           type="text/javascript"
           src="https://embeds.iubenda.com/widgets/f2cc20d5-bfbe-4c85-880d-6c958cd3c60c.js">
+          strategy="beforeInteractive"
         </script>
       </head>
       <body>

@@ -24,12 +24,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="it" className={`${fraunces.variable} ${dmSans.variable}`}>
       <head>
-        {/* Forziamo l'inserimento esatto dello snippet per il bot di iubenda */}
-        <script 
-          dangerouslySetInnerHTML={{
-            __html: `</script><script type="text/javascript" src="https://embeds.iubenda.com/widgets/f2cc20d5-bfbe-4c85-880d-6c958cd3c60c.js"></script><script>`
-          }}
-        />
+        {/* Iubenda Cookie Solution: Inserito nativamente senza type="text/javascript" per evitare conflitti con Next.js */}
+        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+        <script src="https://embeds.iubenda.com/widgets/f2cc20d5-bfbe-4c85-880d-6c958cd3c60c.js"></script>
       </head>
       <body>
         {/* Contenuto principale del sito */}

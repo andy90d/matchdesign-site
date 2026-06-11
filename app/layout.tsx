@@ -37,8 +37,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         
         {/* 2. Caricamento del widget reale (Senza virgole di sintassi errate e con chiusura corretta) */}
         <Script 
-          src="https://embeds.iubenda.com/widgets/f2cc20d5-bfbe-4c85-880d-6c958cd3c60c.js" 
-          strategy="afterInteractive"
+          src="https://embeds.iubenda.com/widgets/f2cc20d5-bfbe-4c85-880d-6c958cd3c60c.js"
+          strategy="beforeInteractive"
         />
       </head>
       <body>

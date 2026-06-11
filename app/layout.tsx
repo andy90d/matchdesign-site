@@ -1,5 +1,5 @@
 import { Fraunces, DM_Sans } from "next/font/google";
-import Script from "next/script";
+/*import Script from "next/script";*/
 
 const fraunces = Fraunces({
   subsets: ["latin"],

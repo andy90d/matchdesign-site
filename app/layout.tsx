@@ -24,12 +24,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="it" className={`${fraunces.variable} ${dmSans.variable}`}>
       <head>
-        {/* 1. Il widget principale di Iubenda (Cookie Banner) */}
-        <Script 
-          id="iubenda-cookie-solution"
+        {/* Disabilitiamo il controllo di Next.js per questo script per accontentare il bot di iubenda */}
+        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+        <script 
+          type="text/javascript" 
           src="https://embeds.iubenda.com/widgets/f2cc20d5-bfbe-4c85-880d-6c958cd3c60c.js"
-          strategy="beforeInteractive"
-        />
+        ></script>
       </head>
       <body>
         {/* Contenuto principale del sito */}

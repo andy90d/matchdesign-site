@@ -24,12 +24,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="it" className={`${fraunces.variable} ${dmSans.variable}`}>
       <head>
-        {/* Disabilitiamo il controllo di Next.js per questo script per accontentare il bot di iubenda */}
-        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+        {/* Forziamo l'inserimento esatto dello snippet per il bot di iubenda */}
         <script 
-          type="text/javascript" 
-          src="https://embeds.iubenda.com/widgets/f2cc20d5-bfbe-4c85-880d-6c958cd3c60c.js"
-        ></script>
+          dangerouslySetInnerHTML={{
+            __html: `</script><script type="text/javascript" src="https://embeds.iubenda.com/widgets/f2cc20d5-bfbe-4c85-880d-6c958cd3c60c.js"></script><script>`
+          }}
+        />
       </head>
       <body>
         {/* Contenuto principale del sito */}

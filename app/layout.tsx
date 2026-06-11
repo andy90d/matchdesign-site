@@ -56,12 +56,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </a>
         </footer>
 
-        {/* 3. Lo script generico di iubenda per far funzionare i popup (caricato una sola volta) */}
-        <Script 
+        {/* 3. Lo script generico di iubenda usando il tag nativo minuscolo con defer per non rallentare il sito */}
+        <script 
           id="iubenda-policy-script"
           src="https://cdn.iubenda.com/iubenda.js" 
-          strategy="lazyOnload" 
-        />
+          defer
+        ></script>
       </body>
     </html>
   );

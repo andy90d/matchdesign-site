@@ -35,7 +35,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </main>
 
         {/* 2. Link a Privacy e Cookie Policy posizionati in fondo alla pagina */}
-        <footer style={{ padding: "2rem", textAlign: "center", fontSize: "0.875rem" }}>
+        <footer style={{ padding: "2rem", textAlign: "center", fontSize: "0.875rem", backgroundColor: "#1e1e1e" }}>
           <a 
             href="https://www.iubenda.com/privacy-policy/18476717" 
             className="iubenda-black iubenda-noiframe iubenda-embed" 

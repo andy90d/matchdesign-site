@@ -47,6 +47,7 @@ video {
   max-width: 100%;
 }
 
-footer {
+footer[style] {
   background-color: #1e1e1e !important;
+  color: rgba(244,239,233,0.25) !important;
 }

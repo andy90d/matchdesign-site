@@ -22,7 +22,6 @@ html {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #1e1e1e;
 }
 
 body {
@@ -46,4 +45,8 @@ img,
 video {
   display: block;
   max-width: 100%;
+}
+
+footer {
+  background-color: #1e1e1e !important;
 }

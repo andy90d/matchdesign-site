@@ -30,8 +30,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         {/* Contenuto principale del sito */}
-        <main>
-          {children}
+        <main style={{ display: "contents" }}>
+            {children}
         </main>
 
         {/* 2. Link a Privacy e Cookie Policy posizionati in fondo alla pagina */}

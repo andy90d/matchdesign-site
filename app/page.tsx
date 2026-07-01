@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata = {
   title: "MATCHdesign — Brand Visual Identity",
@@ -23,8 +24,8 @@ export default function Home() {
       <div style={{ position: "fixed", top: 0, left: 0, right: 0, height: "2px", background: "#d9453d", zIndex: 20 }} />
 
       {/* Logo */}
-      <div style={{ position: "fixed", top: "1.4rem", left: "1.75rem", zIndex: 20, fontFamily: "'DM Sans', sans-serif", fontSize: "0.7rem", letterSpacing: "0.22em", color: "rgba(244,239,233,0.4)", textTransform: "uppercase" }}>
-        MATCH<span style={{ color: "#d9453d" }}>design</span>
+      <div style={{ position: "fixed", top: "1.2rem", left: "1.75rem", zIndex: 20 }}>
+        <Image src="/Logo_DarkBg.svg" alt="MATCHdesign" width={120} height={32} priority />
       </div>
 
       {/* Grain */}

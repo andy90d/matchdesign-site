@@ -67,6 +67,7 @@ export default function Home() {
           textTransform: "uppercase",
           textDecoration: "none",
           transition: "background 0.16s ease",
+          outline: "none",
         }}>
           Scopri di cosa ha bisogno il tuo brand →
         </Link>

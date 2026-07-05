@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export const metadata = {
   title: "MATCHdesign — Sistemi di Brand Identity per Founder e Professionisti",
-  description: "Costruiamo il sistema che protegge la coerenza del tuo brand nel tempo. Diagnosi gratuita in pochi minuti, nessuna email richiesta per iniziare.",
+  description: "Costruiamo il sistema che protegge la coerenza del tuo brand nel tempo. Diagnosi gratuita in pochi minuti. Poche domande, nessuna email per iniziare. Solo alla fine, se vuoi, per essere ricontattato.",
 };
 
 export default function Home() {

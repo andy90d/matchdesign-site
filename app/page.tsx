@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export const metadata = {
   title: "MATCHdesign — Sistemi di Brand Identity per Founder e Professionisti",
-  description: "Costruiamo il sistema che protegge la coerenza del tuo brand nel tempo. Diagnosi gratuita in pochi minuti. Poche domande, nessuna email per iniziare. Solo alla fine, se vuoi, per essere ricontattato.",
+  description: "Costruiamo il sistema che protegge la coerenza del tuo brand nel tempo. Diagnosi gratuita in pochi minuti, nessuna email richiesta per iniziare.",
 };
 
 export default function Home() {
@@ -123,7 +123,7 @@ export default function Home() {
             <div>
               <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.7rem", color: "rgba(217,69,61,0.7)", marginBottom: "0.5rem" }}>01</p>
               <p style={{ fontFamily: "'Fraunces', serif", fontSize: "1rem", fontWeight: 700, color: "#f4efe9", marginBottom: "0.5rem" }}>Rispondi</p>
-              <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.82rem", fontWeight: 300, color: "rgba(244,239,233,0.55)", lineHeight: 1.6 }}>Poche domande, nessuna email richiesta per iniziare.</p>
+              <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.82rem", fontWeight: 300, color: "rgba(244,239,233,0.55)", lineHeight: 1.6 }}>Poche domande, nessuna email per iniziare. Solo alla fine, se vuoi, per essere ricontattato.</p>
             </div>
             <div>
               <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.7rem", color: "rgba(217,69,61,0.7)", marginBottom: "0.5rem" }}>02</p>

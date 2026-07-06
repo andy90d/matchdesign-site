@@ -1,4 +1,4 @@
-import { Fraunces, DM_Sans } from "next/font/google";
+import { Fraunces, DM_Sans, Space_Mono } from "next/font/google";
 /*import Script from "next/script";*/
 
 const fraunces = Fraunces({
@@ -15,6 +15,13 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
+const spaceMono = Space_Mono({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-space-mono",
+  display: "swap",
+});
+
 export const metadata = {
   title: "Diagnosi Brand — MATCHdesign",
   description: "Scopri di cosa ha bisogno il tuo brand. Poche domande, una diagnosi precisa.",
@@ -22,7 +29,7 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="it" className={`${fraunces.variable} ${dmSans.variable}`}>
+    <html lang="it" className={`${fraunces.variable} ${dmSans.variable} ${spaceMono.variable}`}>
       <head>
         {/* Iubenda Cookie Solution: Inserito nativamente senza type="text/javascript" per evitare conflitti con Next.js */}
         {/* eslint-disable-next-line @next/next/no-sync-scripts */}

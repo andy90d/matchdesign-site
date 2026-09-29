@@ -26,11 +26,41 @@ html {
 }
 
 body {
-  background-color: var(--black);
-  color: var(--white);
+  :root {
+  --color-bg: #1e1e1e;
+  --color-text: #f4efe9;
+  --color-text-muted: rgba(244, 239, 233, 0.6);
+  --color-border: rgba(244, 239, 233, 0.07);
+  --color-accent: #d9453d;
+
+  --font-heading: var(--font-fraunces), serif;
+  --font-body: var(--font-dm-sans), sans-serif;
+  --font-mono: var(--font-space-mono), monospace;
+
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 5rem;
+
+  --container-text: 640px;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
   font-family: var(--font-body);
-  font-weight: 300;
-  line-height: 1.6;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.site-footer {
+  padding: var(--space-md);
+  text-align: center;
+  font-size: 0.875rem;
+  background: var(--color-bg);
+}
 }
 
 a {

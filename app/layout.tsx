@@ -1,71 +1,26 @@
-import { Fraunces, DM_Sans, Space_Mono } from "next/font/google";
-/*import Script from "next/script";*/
+import type { Metadata } from "next";
+import { fraunces, dmSans, spaceMono } from "@/lib/fonts";
+import { IubendaHead, IubendaLoader } from "@/components/legal/Iubenda";
+import Footer from "@/components/layout/Footer";
+import "./globals.css";
 
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  weight: ["700", "900"],
-  variable: "--font-fraunces",
-  display: "swap",
-});
-
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  weight: ["300", "400", "500"],
-  variable: "--font-dm-sans",
-  display: "swap",
-});
-
-const spaceMono = Space_Mono({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-space-mono",
-  display: "swap",
-});
-
-export const metadata = {
-  title: "Diagnosi Brand — MATCHdesign",
-  description: "Scopri di cosa ha bisogno il tuo brand. Poche domande, una diagnosi precisa.",
+export const metadata: Metadata = {
+  title: {
+    default: "MATCHdesign",
+    template: "%s — MATCHdesign",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="it" className={`${fraunces.variable} ${dmSans.variable} ${spaceMono.variable}`}>
       <head>
-        {/* Iubenda Cookie Solution: Inserito nativamente senza type="text/javascript" per evitare conflitti con Next.js */}
-        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
-        <script src="https://embeds.iubenda.com/widgets/f2cc20d5-bfbe-4c85-880d-6c958cd3c60c.js"></script>
+        <IubendaHead />
       </head>
       <body>
-        {/* Contenuto principale del sito */}
-        <main style={{ display: "contents" }}>
-            {children}
-        </main>
-
-        {/* 2. Link a Privacy e Cookie Policy posizionati in fondo alla pagina */}
-        <footer style={{ padding: "2rem", textAlign: "center", fontSize: "0.875rem", backgroundColor: "#1e1e1e" }}>
-          <a 
-            href="https://www.iubenda.com/privacy-policy/18476717" 
-            className="iubenda-black iubenda-noiframe iubenda-embed" 
-            title="Privacy Policy"
-          >
-            Privacy Policy
-          </a>
-          <span style={{ margin: "0 10px" }}>|</span>
-          <a 
-            href="https://www.iubenda.com/privacy-policy/18476717/cookie-policy" 
-            className="iubenda-black iubenda-noiframe iubenda-embed" 
-            title="Cookie Policy"
-          >
-            Cookie Policy
-          </a>
-        </footer>
-
-        {/* 3. Lo script generico di iubenda usando il tag nativo minuscolo con defer per non rallentare il sito */}
-        <script 
-          id="iubenda-policy-script"
-          src="https://cdn.iubenda.com/iubenda.js" 
-          defer
-        ></script>
+        <main>{children}</main>
+        <Footer />
+        <IubendaLoader />
       </body>
     </html>
   );

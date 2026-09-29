@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <main className="p-8">
       <h1 className="text-4xl font-bold [font-family:var(--font-bounded-black)]">
-        Test Font Locale Bounded Black
+        Header 1
       </h1>
     </main>
   );

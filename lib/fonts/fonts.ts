@@ -2,7 +2,7 @@ import { DM_Sans, Space_Mono } from "next/font/google";
 import localFont from "next/font/local";
 
 export const BoundedBlack = localFont({
-  src: "./bounded-black.woff2",
+  src: "./bounded-black.ttf",
   variable: "--font-bounded-black",
   display: "swap",
 });

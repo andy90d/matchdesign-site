@@ -1,9 +1,9 @@
-import { DM_Sans, Space_Mono } from "next/font/google";
-import localFont from "next/font/local";
+import { Unbounded, DM_Sans, Space_Mono } from "next/font/google";
 
-export const BoundedBlack = localFont({
-  src: "./bounded-black.ttf",
-  variable: "--font-bounded-black",
+export const UnboundedBlack = Unbounded({
+  subsets: ["latin"],
+  weight: ["700"],
+  variable: "--font-unbounded-black",
   display: "swap",
 });
 

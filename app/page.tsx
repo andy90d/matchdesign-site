@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className="p-8">
-      <h1 className="text-4xl font-bold [font-family:var(--font-bounded-black)]">
+      <h1 className="text-4xl font-bold [font-family:var(--font-unbounded-black)]">
         Header 1
       </h1>
     </main>

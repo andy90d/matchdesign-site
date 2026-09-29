@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { BoundedBlack, dmSans, spaceMono } from "@/lib/fonts/fonts";
+import { UnboundedBlack, dmSans, spaceMono } from "@/lib/fonts/fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <html
       lang="it"
-      className={`${BoundedBlack.variable} ${dmSans.variable} ${spaceMono.variable}`}
+      className={`${UnboundedBlack.variable} ${dmSans.variable} ${spaceMono.variable}`}
     >
       <body>{children}</body>
     </html>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { IubendaHead, IubendaLoader, IubendaLinks } from "@/components/legal/Iubenda"; 
 import { dmSans, spaceMono, unbounded } from "@/lib/fonts/fonts";
 import "./globals.css";
 
@@ -18,7 +19,21 @@ export default function RootLayout({
       lang="it"
       className={`${unbounded.variable} ${dmSans.variable} ${spaceMono.variable}`}
     >
-      <body>{children}</body>
+      <head>
+        {/* Widget / Script Head Iubenda */}
+        <IubendaHead />
+      </head>
+      <body>
+        {children}
+
+        {/* Footer globale con i link Privacy & Cookie Policy */}
+        <footer className="site-footer">
+          <IubendaLinks />
+        </footer>
+
+        {/* Loader JS Iubenda caricato a fine body */}
+        <IubendaLoader />
+      </body>
     </html>
   );
 }

@@ -1,4 +1,4 @@
-*
+*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -7,31 +7,19 @@
 }
 
 :root {
-  --red:      #d9453d;
-  --red-dark: #c03530;
-  --black:    #1e1e1e;
-  --white:    #f4efe9;
-
-  --font-display: var(--font-bounded-black), sans-serif;
-  --font-body:    var(--font-dm-sans), sans-serif;
-}
-
-html {
-  font-size: 16px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #1e1e1e;
-}
-
-body {
-  :root {
   --color-bg: #1e1e1e;
   --color-text: #f4efe9;
   --color-text-muted: rgba(244, 239, 233, 0.6);
   --color-border: rgba(244, 239, 233, 0.07);
   --color-accent: #d9453d;
 
-  --font-heading: var(--font-fraunces), serif;
+  --red: #d9453d;
+  --red-dark: #c03530;
+  --black: #1e1e1e;
+  --white: #f4efe9;
+
+  /* Variabili Tipografiche */
+  --font-display: var(--font-bounded-black), sans-serif;
   --font-body: var(--font-dm-sans), sans-serif;
   --font-mono: var(--font-space-mono), monospace;
 
@@ -40,6 +28,13 @@ body {
   --space-lg: 5rem;
 
   --container-text: 640px;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-bg);
 }
 
 body {
@@ -59,7 +54,6 @@ body {
   font-size: 0.875rem;
   background: var(--color-bg);
 }
-}
 
 a {
   color: inherit;
@@ -78,5 +72,5 @@ video {
 
 footer[style] {
   background-color: #1e1e1e !important;
-  color: rgba(244,239,233,0.25) !important;
+  color: rgba(244, 239, 233, 0.25) !important;
 }

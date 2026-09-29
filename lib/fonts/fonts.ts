@@ -2,7 +2,7 @@ import { DM_Sans, Space_Mono, Unbounded } from "next/font/google";
 
 export const unbounded = Unbounded({
   subsets: ["latin"],
-  weight: ["900"], // Aggiungi altri pesi se ti servono, es: ["400", "700", "900"]
+  // Omettiamo "weight" oppure definiamo l'asse completo:
   variable: "--font-unbounded",
   display: "swap",
 });

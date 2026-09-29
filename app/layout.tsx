@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import {dmSans, spaceMono } from "@/lib/fonts";
-import { BoundedBlack } from "@/lib/fonts";
+import {dmSans, spaceMono } from "@/lib/fonts/fonts";
+import { BoundedBlack } from "@/lib/fonts/fonts";
 import { IubendaHead, IubendaLoader } from "@/components/legal/Iubenda";
 import Footer from "@/components/common/Footer";
 import "./globals.css";

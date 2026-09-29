@@ -1,10 +1,15 @@
-import { Fraunces, DM_Sans, Space_Mono } from "next/font/google";
+import { DM_Sans, Space_Mono } from "next/font/google";
+import localFont from "next/font/local";
 
-export const fraunces = Fraunces({
-  subsets: ["latin"],
-  weight: ["700", "900"],
-  variable: "--font-fraunces",
-  display: "swap",
+export const BoundedBlack = localFont({
+  src: [
+    {
+      path: "./BOUNDED-BLACK.TTF",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-bounded-black",
 });
 
 export const dmSans = DM_Sans({

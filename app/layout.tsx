@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { fraunces, dmSans, spaceMono } from "@/lib/fonts";
+import {dmSans, spaceMono } from "@/lib/fonts";
+import { BoundedBlack } from "@/lib/fonts";
 import { IubendaHead, IubendaLoader } from "@/components/legal/Iubenda";
-import Footer from "@/components/layout/Footer";
+import Footer from "@/components/common/Footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -11,9 +12,10 @@ export const metadata: Metadata = {
   },
 };
 
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="it" className={`${fraunces.variable} ${dmSans.variable} ${spaceMono.variable}`}>
+    <html lang="it" className={`${BoundedBlack.variable} ${dmSans.variable} ${spaceMono.variable}`}>
       <head>
         <IubendaHead />
       </head>

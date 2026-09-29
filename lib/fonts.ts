@@ -4,7 +4,7 @@ import localFont from "next/font/local";
 export const BoundedBlack = localFont({
   src: [
     {
-      path: "./BOUNDED-BLACK.TTF",
+      path: "../../public/fonts/BOUNDED-BLACK.TTF",
       weight: "700",
       style: "normal",
     },

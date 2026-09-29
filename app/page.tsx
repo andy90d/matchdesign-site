@@ -6,6 +6,14 @@ export const metadata: Metadata = {
     "Costruiamo il sistema che protegge la coerenza del tuo brand nel tempo. Diagnosi gratuita in pochi minuti, nessuna email richiesta per iniziare.",
 };
 
+
+
 export default function Home() {
-  return <h1>MATCHdesign</h1>;
+  return (
+    <main className="p-8">
+      <h1 className="text-4xl font-bold [font-family:var(--font-display)]">
+        Test Font Locale Bounded Black
+      </h1>
+    </main>
+  );
 }

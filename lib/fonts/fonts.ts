@@ -1,9 +1,9 @@
-import { Unbounded, DM_Sans, Space_Mono } from "next/font/google";
+import { DM_Sans, Space_Mono, Unbounded } from "next/font/google";
 
-export const UnboundedBlack = Unbounded({
+export const unbounded = Unbounded({
   subsets: ["latin"],
-  weight: ["700"],
-  variable: "--font-unbounded-black",
+  weight: ["900"], // Aggiungi altri pesi se ti servono, es: ["400", "700", "900"]
+  variable: "--font-unbounded",
   display: "swap",
 });
 

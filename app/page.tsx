@@ -7,6 +7,13 @@ export const metadata: Metadata = {
     "Costruiamo il sistema che protegge la coerenza del tuo brand nel tempo.",
 };
 
+function TextHighlight({ children }: { children: React.ReactNode }) {
+  return (
+    <mark className="bg-[var(--accent-muted)] text-[var(--accent)] border border-[var(--accent)]/30 px-2 py-0.5 rounded-md font-medium">
+      {children}
+    </mark>
+  );
+}
 
 
 export default function Home() {
@@ -30,7 +37,7 @@ export default function Home() {
         </h2>
         
         <p className="text-base leading-relaxed text-[var(--foreground)]">
-          In un'interfaccia scura, per evidenziare i concetti <Highlight>fondamentali</Highlight> è 
+          In un'interfaccia scura, per evidenziare i concetti <TextHighlight>fondamentali</TextHighlight> è 
           meglio usare sfondi opachi o semi-trasparenti per evitare che il contrasto risulti troppo 
           aggressivo per la vista.
         </p>

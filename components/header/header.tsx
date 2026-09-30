@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import styles from "./header.module.css";
-import { dmSans, spaceMono, unbounded } from "@/lib/fonts/fonts";
 
 const NAV_ITEMS = [
   { label: "Home", href: "/" },
@@ -12,7 +11,7 @@ const NAV_ITEMS = [
   { label: "Work together", href: "/work-together" },
 ];
 
-export default function header() {
+export default function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 

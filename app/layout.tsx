@@ -24,7 +24,6 @@ export default function RootLayout({
         <IubendaHead />
       </head>
       <body>
-        {children}
            <Header />
               <main>{children}</main>
         {/* Footer globale con i link Privacy & Cookie Policy */}

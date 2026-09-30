@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { IubendaHead, IubendaLoader, IubendaLinks } from "@/components/legal/Iubenda"; 
 import { dmSans, spaceMono, unbounded } from "@/lib/fonts/fonts";
 import "./globals.css";
-import Header from "@/components/Header/Header";
+import Header from "@/components/header/header";
 
 export const metadata: Metadata = {
   title: "Sistemi di Brand Identity per Founder e Professionisti",

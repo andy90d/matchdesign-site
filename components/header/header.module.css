@@ -65,7 +65,7 @@
   display: none;
   min-height: 44px;
   padding: 0.5rem 0.875rem;
-  font: unbounded, sans-serif;
+  font-family: var(--font-unbounded);
   font-weight: 700;
   text-transform: uppercase;
   color: var(--color-text);

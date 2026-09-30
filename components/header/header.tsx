@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import styles from "./header.module.css";
+import { dmSans, spaceMono, unbounded } from "@/lib/fonts/fonts";
 
 const NAV_ITEMS = [
   { label: "Home", href: "/" },

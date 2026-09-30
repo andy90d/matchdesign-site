@@ -7,11 +7,12 @@
 }
 
 :root {
-  --color-bg: #1e1e1e;
-  --color-text: #f4efe9;
-  --color-text-muted: rgba(244, 239, 233, 0.6);
+  --color-bg: #1a1a18;
+  --color-text: #f8f7f6;
+  --color-text-muted: #988b83;
   --color-border: rgba(244, 239, 233, 0.07);
-  --color-accent: #d9453d;
+  --color-accent: #F0A830;
+  --color-accent2: #D9453D;
 
   --red: #d9453d;
   --red-dark: #c03530;

@@ -22,9 +22,12 @@ export default function Home() {
   return (
     <div className="home-page">
       <HomeImage/>
+
       {/* --- Titolo e testo di benvenuto --- */}
-      <h1>Home</h1>
-      <p>Welcome to the Home page!</p>
+      <h1>Sai che qualcosa si sta mettendo in mezzo alla tua comunicazione...</h1>
+      <p>...e hai pensato di risolverlo con un nuovo logo, nuovi colori, nuovi font.
+        Ma in realtà stai applicando una tattica. Sei sicuro che corrisponda alla strategia?
+      </p>
 
     </div>
   );

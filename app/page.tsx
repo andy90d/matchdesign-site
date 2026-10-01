@@ -3,7 +3,6 @@
 // ============================================
 import type { Metadata } from "next";
 import HomeImage from "@/components/home/home-image";
-import Button from "@/components/buttons/button_main"
 
 
 // ============================================

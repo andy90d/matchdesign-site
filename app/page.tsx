@@ -24,8 +24,11 @@ export default function Home() {
       <HomeImage/>
 
       {/* --- Titolo e testo di benvenuto --- */}
-      <h1>Sai che qualcosa si sta mettendo in mezzo alla tua comunicazione...</h1>
-      <p>Descrizione del problema e del servizio offerto, con un invito a contattarci per una consulenza gratuita.
+      <h2 className="text-center">
+        Sai che qualcosa si sta mettendo in mezzo alla tua comunicazione...
+      </h2>
+      <p className="text-center">
+        Descrizione del problema e del servizio offerto, con un invito a contattarci per una consulenza gratuita.
       </p>
 
     </div>

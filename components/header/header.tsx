@@ -18,8 +18,15 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
+
+                {/* --- Logo (link alla home) --- */}
         <Link href="/" className={styles.logo} onClick={() => setOpen(false)}>
-          MATCHdesign
+          <img
+            src="/assets/images/Logo-Main-Color-Dark-BG.svg"
+            alt="MATCHdesign"
+            width={160}
+            height={32}
+          />
         </Link>
 
         <button

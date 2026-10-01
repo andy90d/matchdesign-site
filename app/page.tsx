@@ -25,8 +25,7 @@ export default function Home() {
 
       {/* --- Titolo e testo di benvenuto --- */}
       <h1>Sai che qualcosa si sta mettendo in mezzo alla tua comunicazione...</h1>
-      <p>...e hai pensato di risolverlo con un nuovo logo, nuovi colori, nuovi font.
-        Ma in realtà stai applicando una tattica. Sei sicuro che corrisponda alla strategia?
+      <p>Descrizione del problema e del servizio offerto, con un invito a contattarci per una consulenza gratuita.
       </p>
 
     </div>

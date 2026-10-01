@@ -7,8 +7,10 @@ import styles from "./header.module.css";
 
 const NAV_ITEMS = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Work together", href: "/work-together" },
+  { label: "Studio", href: "/about" },
+  { label: "Servizi", href: "/work-together" },
+  { label: "Contatti", href: "/contacts" },
+  { label: "Portfolio", href: "/portfolio" },
 ];
 
 export default function Header() {

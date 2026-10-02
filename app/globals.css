@@ -89,6 +89,17 @@ footer[style] {
 }
 
 /* ============================================
+   TIPOGRAFIA: testo colorato dentro un paragrafo
+   ============================================ */
+.text-accent {
+  color: var(--color-accent);
+}
+
+.text-accent2 {
+  color: var(--color-accent2);
+}
+
+/* ============================================
    TIPOGRAFIA: titoli h1-h4 (stile base)
    ============================================ */
 h1,

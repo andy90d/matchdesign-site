@@ -3,7 +3,9 @@
 // ============================================
 import type { Metadata } from "next";
 import HomeImage from "@/components/home/home-image";
-
+import Button from "@/components/button/button";
+import ArrowRight from "@/components/icons/arrow-right";
+import ImageSection from "@/components/image-section/image-section";
 
 // ============================================
 // METADATA SEO (title e description della home)
@@ -20,28 +22,50 @@ export const metadata: Metadata = {
 // ============================================
 export default function Home() {
   return (
-    <div className="home-page">
+     <div className="home-page">
+
+      {/* --- Immagine principale --- */}
       <HomeImage/>
 
-      {/* --- Titolo e testo di benvenuto --- */}
-      <h2 className="text-center">
-        Ci hai provato e riprovato.
-        Ma qualcosa non torna.
-      </h2>
-      <p className="text-center">
-        Hai cambiato il logo. Rifatto il sito. Rinnovato l'identità.
 
-        Eppure il tuo brand non sembra ancora rappresentarti davvero.
+      {/* --- Sezione testo introduttivo (margini laterali e spazio verticale) --- */}
+      <section className="container section">
 
-        Il business è cresciuto, ma il brand è rimasto indietro.
-        Il team è cresciuto, ma non tutti sembrano parlare la stessa lingua.
-        La comunicazione si è moltiplicata, ma mantenerla coerente è diventato sempre più difficile.
+        {/* --- Titolo --- */}
+        <h2 className="text-center">
+          Il tuo brand. La tua comunicazione. La tua direzione.
+        </h2>
 
-        Forse il problema non è quello che stai guardando.
-        È la prospettiva da cui lo stai guardando.
-      </p>
+        {/* --- Sottotitolo --- */}
+        <h4 className="text-center mt-md">Il tuo brand è cresciuto. Ma la sua comunicazione è cresciuta con lui?</h4>
 
-    </div>
-  );
-  
+        {/* --- Paragrafo --- */}
+        <p className="text-center">
+          Quando aumentano persone, canali, prodotti e messaggi, mantenere tutto coerente diventa più difficile.
+
+          MATCHdesign ti aiuta a fare chiarezza, mettere ordine e costruire una comunicazione capace di crescere senza perdere la propria direzione.
+        </p>
+
+        {/* --- Bottone con icona dopo il testo --- */}
+        <div className="text-center mt-lg">
+          <Button href="/work-together" iconEnd={<ArrowRight />}>
+            Come posso aiutarti
+          </Button>
+        </div>
+
+      </section>
+
+    {/* --- Sezione immagine con testo e bottone --- */}
+      <ImageSection src="/assets/images/ImmagineSezioneTest.jpg" alt="">
+        <h3 className="title-narrow">"Credo che prima di affrontare una sfida,
+          sia importante avere una visione chiara del problema
+          e delle possibili soluzioni." </h3>
+          <p>-Andrea</p>
+        <Button href="/about" iconEnd={<ArrowRight />}>
+          Da dove nasce MATCHdesign
+        </Button>
+      </ImageSection>
+
+    </div>   
+  )
 }

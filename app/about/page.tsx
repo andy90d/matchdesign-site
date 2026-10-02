@@ -43,7 +43,6 @@ export default function Home() {
         <p>
           Lavoro con organizzazioni che stanno crescendo, cambiando o affrontando una comunicazione diventata difficile da governare.
           Le aiuto a fare chiarezza, costruire sistemi di brand più coerenti e creare gli strumenti necessari per continuare a comunicare con autonomia.
-          
           <span className="text-accent2"> Perché un buon sistema non dovrebbe aver bisogno del suo designer per ogni decisione.</span>
         </p>
         </section>

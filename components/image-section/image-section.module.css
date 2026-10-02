@@ -1,0 +1,59 @@
+/* ============================================
+   SEZIONE IMMAGINE: cornice a tutta larghezza
+   ============================================ */
+.frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 85svh;
+  overflow: hidden;
+}
+
+
+/* ============================================
+   SEZIONE IMMAGINE: adattamento dell'immagine
+   ============================================ */
+.image {
+  object-fit: cover;
+}
+
+
+/* ============================================
+   SEZIONE IMMAGINE: livello del testo (velo scuro)
+   ============================================ */
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: var(--space-md);
+  background: color-mix(in srgb, var(--color-bg) 55%, transparent);
+}
+
+
+/* ============================================
+   SEZIONE IMMAGINE: contenitore del testo
+   (stessa larghezza e margini dell'header)
+   ============================================ */
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 5vw, 6rem);
+}
+
+
+/* ============================================
+   SEZIONE IMMAGINE: adattamento mobile
+   (più altezza, così il testo non viene tagliato)
+   ============================================ */
+@media (max-width: 767px) {
+  .frame {
+    aspect-ratio: 4 / 5;
+  }
+}

@@ -20,7 +20,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding-block: var(--space-md);
+  padding-block: clamp(var(--space-md), 6vw, var(--space-lg));
   background: linear-gradient(
     to top,
     color-mix(in srgb, var(--color-bg) 85%, transparent),

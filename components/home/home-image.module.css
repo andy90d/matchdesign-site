@@ -1,0 +1,65 @@
+/* ============================================
+   SEZIONE IMMAGINE HOME: cornice dell'immagine
+   ============================================ */
+.frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+ /* border: 1px dashed var(--color-text-muted);  temporaneo: da togliere con l'immagine */
+}
+
+
+/* ============================================
+   SEZIONE IMMAGINE HOME: livello del testo
+   (sfumatura per garantire la leggibilità)
+   ============================================ */
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-block: clamp(var(--space-md), 6vw, var(--space-lg));
+  background: linear-gradient(
+    to top,
+    color-mix(in srgb, var(--color-bg) 85%, transparent),
+    transparent 65%
+  );
+}
+
+
+/* ============================================
+   SEZIONE IMMAGINE HOME: contenitore esterno
+   (stessa larghezza e margini dell'header)
+   ============================================ */
+.wrapper {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: var(--space-md) clamp(1rem, 5vw, 6rem);
+}
+
+
+/* ============================================
+   SEZIONE IMMAGINE HOME: stile del testo
+   ============================================ */
+.content h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6vw, 4.5rem);
+  line-height: 1.1;
+}
+
+.content p {
+  max-width: var(--container-text);
+}
+
+
+/* ============================================
+   SEZIONE IMMAGINE HOME: adattamento mobile
+   (più altezza, così il testo non viene tagliato)
+   ============================================ */
+@media (max-width: 767px) {
+  .frame {
+    aspect-ratio: 4 / 5;
+  }
+}

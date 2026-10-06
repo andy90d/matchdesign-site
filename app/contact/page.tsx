@@ -12,8 +12,8 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div className="home-page">
-      <h1>Contact</h1>
-      <p>Welcome to the Contact page!</p>
+      <h1>FORM DI CONTATTO</h1>
+      <p>Form di contatto</p>
     </div>
   );
 }

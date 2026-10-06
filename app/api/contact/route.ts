@@ -27,7 +27,7 @@ function clean(value: unknown) {
 export async function POST(request: Request) {
 
   // --- Chiave Resend (letta qui, non a livello di modulo) ---
-  const apiKey = process.env.RESEND_API_KEY;
+  const apiKey = process.env.match_design_site_ContactForm || process.env.RESEND_API_KEY;
   if (!apiKey) {
     return Response.json({ error: "Servizio non configurato." }, { status: 500 });
   }

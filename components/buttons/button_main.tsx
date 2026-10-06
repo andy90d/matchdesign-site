@@ -5,7 +5,9 @@ import type { ReactNode, MouseEventHandler } from 'react';
 
 type ButtonProps = {
   children: ReactNode;      // il testo
-  icon?: ReactNode;         // opzionale — qualunque icona (lucide-react, svg inline, emoji)
+  icon?: ReactNode;         // opzionale — qualunque icona
+  iconStart?: ReactNode;
+  iconEnd?: ReactNode;
   variant?: 'fill' | 'line';
   href?: string;             // se presente → <a>, altrimenti → <button>
   onClick?: MouseEventHandler;
@@ -25,27 +27,37 @@ const variants = {
 export function Button({
   children,
   icon,
+  iconStart,
+  iconEnd,
   variant = 'fill',
   href,
   onClick,
   type = 'button',
   className = '',
 }: ButtonProps) {
-  const classes = `${base} ${variants[variant]} ${className}`;
+  const classes = `${base} ${variants[variant]} ${className}`.trim();
+
+  const startIcon = iconStart || (!iconEnd ? icon : null);
+
+  const content = (
+    <>
+      {startIcon}
+      <span>{children}</span>
+      {iconEnd}
+    </>
+  );
 
   if (href) {
     return (
       <a href={href} className={classes}>
-        <span>{children}</span>
-        {icon}
+        {content}
       </a>
     );
   }
 
   return (
     <button type={type} onClick={onClick} className={classes}>
-      <span>{children}</span>
-      {icon}
+      {content}
     </button>
   );
 }

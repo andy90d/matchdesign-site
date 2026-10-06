@@ -14,6 +14,7 @@ type ButtonProps = {
   type?: "button" | "submit";
   iconStart?: React.ReactNode;
   iconEnd?: React.ReactNode;
+  className?: string;
 };
 
 
@@ -26,7 +27,11 @@ export default function Button({
   type = "button",
   iconStart,
   iconEnd,
+  className = "", // <--- 1. Estratto className con valore di default vuoto
 }: ButtonProps) {
+
+  // Combiniamo la classe del modulo CSS con la classe passata dall'esterno
+  const combinedClass = `${styles.button} ${className}`.trim();
 
   // --- Contenuto interno: icona iniziale, testo, icona finale ---
   const content = (
@@ -44,7 +49,7 @@ export default function Button({
   // --- Versione link (se è presente href) ---
   if (href) {
     return (
-      <Link href={href} className={styles.button}>
+      <Link href={href} className={combinedClass}>
         {content}
       </Link>
     );
@@ -52,7 +57,7 @@ export default function Button({
 
   // --- Versione pulsante (per i form) ---
   return (
-    <button type={type} className={styles.button}>
+    <button type={type} className={combinedClass}>
       {content}
     </button>
   );

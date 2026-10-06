@@ -57,14 +57,37 @@ export default function Home() {
 
     {/* --- Sezione immagine con testo e bottone --- */}
       <ImageSection src="/assets/images/ImmagineSezioneTest.jpg" alt="">
+       <div className="container">
         <h3 className="title-narrow">"Credo che prima di affrontare una sfida,
           sia importante avere una visione chiara del problema
           e delle possibili soluzioni." </h3>
           <p>-Andrea</p>
-        <Button href="/about" iconEnd={<ArrowRight />}>
+        <Button href="/about" iconEnd={<ArrowRight />} className="mt-md">
           Da dove nasce MATCHdesign
         </Button>
+        </div>
       </ImageSection>
+
+      <section className="container section"> 
+        <h3>Non partiamo dal design. Partiamo dalle domande.</h3>
+
+        <p className="mt-md">
+          Cosa vogliamo ottenere?<br />
+          Cosa ci impedisce di arrivarci?<br />
+          Cosa non sta funzionando?<br />
+          Cosa deve rimanere coerente?<br />
+          E cosa può cambiare?<br />
+        </p>
+        <p className="mt-md">
+        Trovare queste risposte ci permette di capire dove intervenire davvero.</p>
+        
+        <Button href="/work-together" iconEnd={<ArrowRight />} className="mt-md">
+        Da dove iniziamo?
+       </Button>
+        
+      </section>
+
+
 
     </div>   
   )

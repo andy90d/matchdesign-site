@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import ContactForm from "@/components/contact-form/contact-form";
+
 
 export const metadata: Metadata = {
   title: "MATCHdesign",
@@ -12,8 +14,15 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div className="home-page">
-      <h1>FORM DI CONTATTO</h1>
-      <p>Form di contatto</p>
+
+            {/* --- Sezione form di contatto --- */}
+      <section className="container section">
+        <h1 className="text-center">Work together</h1>
+        <div className="mt-md">
+          <ContactForm />
+        </div>
+      </section>
     </div>
+    
   );
 }

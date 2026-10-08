@@ -192,3 +192,10 @@ p + p {
 .section {
   padding-block: clamp(var(--space-md), 8vw, var(--space-lg));
 }
+
+/* ============================================
+   LAYOUT: sezione con sfondo colorato
+   ============================================ */
+.section--highlight {
+  background-color: #D9453D;
+}

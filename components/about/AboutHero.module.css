@@ -1,0 +1,61 @@
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100svh; /* su mobile evita il salto dovuto alla barra del browser */
+  padding-block: 6rem 7rem; /* il fondo lascia spazio alla freccia */
+  overflow: hidden;
+  background: #1a1a18;
+  color: #f8f7f6;
+}
+
+.image {
+  z-index: -2;
+  object-fit: cover;
+}
+
+/* Gradiente per la leggibilità del testo: i valori vanno verificati sulla foto scelta */
+.scrim {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    to top,
+    rgba(26, 26, 24, 0.92) 0%,
+    rgba(26, 26, 24, 0.6) 45%,
+    rgba(26, 26, 24, 0.15) 100%
+  );
+}
+
+.inner {
+  width: 100%;
+  margin-top: auto; /* testo in basso */
+}
+
+.inner p {
+    max-width: 20rem;
+    margin: 0;
+    min-height: 25rem; /* altezza del paragrafo */
+}
+
+.cue {
+  position: absolute;
+  bottom: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: inherit;
+  font-size: 0.875rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+}
+
+.cue:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}

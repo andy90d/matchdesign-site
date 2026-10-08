@@ -13,16 +13,30 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div className="home-page">
-      <h1>Work together</h1>
-      <p>Welcome to the Work together page!</p>
-
-            {/* --- Sezione form di contatto --- */}
       <section className="container section">
-        <h1 className="text-center">Work together</h1>
-        <div className="mt-md">
-          <ContactForm />
-        </div>
+        <h2 className="text-center">
+          Quattro dimensioni. Un unico obiettivo: costruire un sistema
+          di brand coerente e capace di crescere nel tempo.
+        </h2>
       </section>
+
+      <section className="container section section--highlight">
+        immagine della matrice con sezioni che si illuminano
+        <div className="mt-md">
+          High touch
+          → la soluzione si adatta maggiormente al contesto specifico
+          dell'organizzazione. <br />
+
+          Low touch
+          → il sistema incorpora criteri e strumenti che permettono
+          al cliente di lavorare con maggiore autonomia.<br />
+          </div>
+      </section>      
+           
+      <section className="container section">
+        immagine della matrice con sezioni che si illuminano
+      </section>
+
     </div>
   );
 }

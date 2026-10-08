@@ -6,6 +6,7 @@ import HomeImage from "@/components/home/home-image";
 import Button from "@/components/button/button";
 import ArrowRight from "@/components/icons/arrow-right";
 import ImageSection from "@/components/image-section/image-section";
+import ContactForm from "@/components/contact-form/contact-form";
 
 // ============================================
 // METADATA SEO (title e description della home)
@@ -87,7 +88,13 @@ export default function Home() {
         
       </section>
 
-
+       {/* --- Sezione form di contatto --- */}
+      <section className="container section">
+        <h1 className="text-center">Work together</h1>
+        <div className="mt-md">
+          <ContactForm />
+        </div>
+      </section>
 
     </div>   
   )

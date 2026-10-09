@@ -1,12 +1,23 @@
 /* ============================================
    SEZIONE IMMAGINE: cornice a tutta larghezza
+   (le proporzioni di default si possono cambiare
+   con la prop aspectRatio, tramite --frame-ratio)
    ============================================ */
 .frame {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: var(--frame-ratio, 16 / 9);
   max-height: 85svh;
   overflow: hidden;
+}
+
+
+/* ============================================
+   SEZIONE IMMAGINE: cornice senza limite di altezza
+   (usata con fit="contain", per non tagliare l'immagine)
+   ============================================ */
+.frameContain {
+  max-height: none;
 }
 
 
@@ -19,7 +30,15 @@
 
 
 /* ============================================
-   SEZIONE IMMAGINE: livello del testo (velo scuro)
+   SEZIONE IMMAGINE: immagine mostrata per intero
+   ============================================ */
+.imageContain {
+  object-fit: contain;
+}
+
+
+/* ============================================
+   SEZIONE IMMAGINE: livello del testo
    ============================================ */
 .overlay {
   position: absolute;
@@ -28,6 +47,13 @@
   flex-direction: column;
   justify-content: center;
   padding-block: var(--space-md);
+}
+
+
+/* ============================================
+   SEZIONE IMMAGINE: velo scuro (opzionale)
+   ============================================ */
+.veil {
   background: color-mix(in srgb, var(--color-bg) 55%, transparent);
 }
 
@@ -50,10 +76,11 @@
 
 /* ============================================
    SEZIONE IMMAGINE: adattamento mobile
-   (più altezza, così il testo non viene tagliato)
+   (più altezza, così il testo non viene tagliato;
+   se passi aspectRatio, vale quello)
    ============================================ */
 @media (max-width: 767px) {
   .frame {
-    aspect-ratio: 4 / 5;
+    aspect-ratio: var(--frame-ratio, 4 / 5);
   }
 }

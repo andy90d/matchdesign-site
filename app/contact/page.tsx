@@ -17,7 +17,7 @@ export default function Home() {
 
             {/* --- Sezione form di contatto --- */}
       <section className="container section">
-        <h1 className="text-center">Work together</h1>
+        <h1 className="text-center">Contattami</h1>
         <div className="mt-md">
           <ContactForm />
         </div>

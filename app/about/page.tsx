@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import AboutHero from "@/components/about/AboutHero";
-import StoryColumns from "@/components/about/StoryColumns";
+import Columns from "@/components/layout/Columns";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "MATCHdesign",
@@ -15,7 +16,7 @@ export default function Home() {
          image={{ src: "/assets/images/ImmagineSezioneTest.jpg", alt: "…", objectPosition: "center" }}
       >
         <div className="container">
-          <h2>Oggi</h2>
+          <h3>Oggi</h3>
           <p>
             Lavoro con organizzazioni che stanno crescendo, cambiando o affrontando una comunicazione difficile da governare.
             Le aiuto a fare chiarezza, costruire sistemi di brand coerenti e creare gli strumenti per comunicare con autonomia.
@@ -25,9 +26,17 @@ export default function Home() {
       </AboutHero>
 
       <div className="container">
-        <StoryColumns>
+        <Columns id="storia" columns={2}>
+        <Image
+          src="/assets/images/ImmagineSezioneTest.jpg"
+          alt="Descrizione dell’immagine"
+          width={1000}
+          height={1250}
+          style={{ width: "100%", height: "auto", objectFit: "cover" }}
+        />
+        <div>
           <section>
-            <h2>È da qui che nasce MATCHdesign.</h2>
+            <h3>È da qui che nasce MATCHdesign.</h3>
             <p>
               Dopo anni di lavoro con piccole realtà, ho visto quanto facilmente la comunicazione possa diventare frammentata.
               Nuovi materiali, nuove esigenze, ma pochi criteri condivisi. Ho iniziato così a chiedermi
@@ -37,8 +46,8 @@ export default function Home() {
             </p>
           </section>
 
-          <section>
-            <h2>Non ho iniziato sapendo di voler diventare designer.</h2>
+          <section  className="mt-lg">
+            <h3>Non ho iniziato sapendo di voler diventare designer.</h3>
             <p>
               Quello che mi ha fatto continuare, però, è stata la curiosità. Più studiavo design,
               più mi interessava capire cosa ci fosse dietro una scelta: perché qualcosa funziona,
@@ -47,15 +56,17 @@ export default function Home() {
             </p>
           </section>
 
-          <section>
-            <h2>Una prospettiva, prima ancora che un metodo.</h2>
+          <section  className="mt-lg">
+            <h3>Una prospettiva, prima ancora che un metodo.</h3>
             <p>
               Non ho tutte le risposte. Ma so che le domande giuste possono cambiare il modo in cui guardiamo un problema.
               È da questo approccio che nasce il mio modo di lavorare: osservare, mettere in relazione e costruire strumenti
               che aiutino a prendere decisioni migliori.
-            </p>
+            </p> 
           </section>
-        </StoryColumns>
+
+          </div>
+        </Columns>
       </div>
     </div>
   );

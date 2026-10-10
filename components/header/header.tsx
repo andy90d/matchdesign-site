@@ -9,7 +9,7 @@ const NAV_ITEMS = [
   { label: "Home", href: "/" },
   { label: "Studio", href: "/about" },
   { label: "Servizi", href: "/work-together" },
-  { label: "Lavori", href: "/portfolio" },
+ /* { label: "Lavori", href: "/portfolio" },*/
   { label: "Contatti", href: "/contact" },
 ];
 

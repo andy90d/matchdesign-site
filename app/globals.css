@@ -142,7 +142,7 @@ h4 {
 /* ============================================
    TIPOGRAFIA: testo centrato
    ============================================ */
-.text-center {
+.text-fmicro {
   margin-inline: auto;
   text-align: center;
 }
@@ -165,6 +165,15 @@ p + p {
    TIPOGRAFIA: titolo con larghezza ridotta
    ============================================ */
 .title-narrow {
+  max-width: 30rem;
+}
+
+/* ============================================
+   TIPOGRAFIA: micro testo
+   ============================================ */
+.micro {
+  font-family: var(--font-mono);
+  font-size: 0.694rem;
   max-width: 30rem;
 }
 
@@ -198,4 +207,23 @@ p + p {
    ============================================ */
 .section--highlight {
   background-color: #D9453D;
+}
+
+/* ============================================
+   LAYOUT: dimensione contenitore padre
+   ============================================ */
+   .about-container {
+  max-width: 80em;
+}
+
+/* ============================================
+   LAYOUT: Card immagine
+   ============================================ */
+  .column-visual {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  margin-bottom: var(--space-md);
+  overflow: hidden;
+  background: rgba(248, 247, 246, 0.08);
 }

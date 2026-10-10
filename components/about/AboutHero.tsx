@@ -15,7 +15,7 @@ type Props = {
   /** Se manca, l'hero mostra solo lo sfondo scuro. */
   image?: HeroImage;
   cueLabel?: string;
-  /** Deve coincidere con l'id di StoryColumns. */
+  /** Deve coincidere con l'id del layout a cui scorre la freccia. */
   cueHref?: string;
 };
 

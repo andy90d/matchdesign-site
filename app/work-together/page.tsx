@@ -76,7 +76,7 @@ export default function WorkTogetherPage() {
     </div>
 
     <section className="container text-fmicro mt-sm">
-      <Button href="/work-together" iconEnd={<ArrowRight />} className="mt-md">
+      <Button href="/contact" iconEnd={<ArrowRight />} className="mt-md">
       Da dove iniziamo?
       </Button>
     </section>

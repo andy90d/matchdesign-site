@@ -16,6 +16,11 @@ export const metadata: Metadata = {
   title: "Sistemi di Brand Identity per Founder e Professionisti",
   description:
     "Costruiamo il sistema che protegge la coerenza del tuo brand nel tempo.",
+    icons: {
+    icon: "/icon.svg", // Assicurati che il file esista nella cartella public/ o app/
+    // oppure se usi un file .svg o .png:
+    // icon: "/assets/images/tuo-favicon.svg",
+  },
 };
 
 
@@ -31,7 +36,7 @@ export default function RootLayout({
 
     // --- TAG HTML: lingua e font applicati a tutto il sito ---
     <html
-      lang="it"
+      lang="it" suppressHydrationWarning
       className={`${unbounded.variable} ${dmSans.variable} ${spaceMono.variable}`}>
 
       {/* --- HEAD: script nell'intestazione della pagina --- */}

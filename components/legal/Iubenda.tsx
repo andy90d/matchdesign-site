@@ -1,7 +1,11 @@
+import Script from "next/script";
+
 export function IubendaHead() {
   return (
-    // eslint-disable-next-line @next/next/no-sync-scripts
-    <script src="https://embeds.iubenda.com/widgets/f2cc20d5-bfbe-4c85-880d-6c958cd3c60c.js"></script>
+    <Script
+      src="https://embeds.iubenda.com/widgets/f2cc20d5-bfbe-4c85-880d-6c958cd3c60c.js"
+      strategy="beforeInteractive"
+    />
   );
 }
 
@@ -28,5 +32,11 @@ export function IubendaLinks() {
 }
 
 export function IubendaLoader() {
-  return <script id="iubenda-policy-script" src="https://cdn.iubenda.com/iubenda.js" defer></script>;
+  return (
+    <Script
+      id="iubenda-policy-script"
+      src="https://cdn.iubenda.com/iubenda.js"
+      strategy="lazyOnload"
+    />
+  );
 }

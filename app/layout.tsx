@@ -6,6 +6,7 @@ import { IubendaHead, IubendaLoader, IubendaLinks } from "@/components/legal/Iub
 import { dmSans, spaceMono, unbounded } from "@/lib/fonts/fonts";
 import "./globals.css";
 import Header from "@/components/header/header";
+import Footer from "@/components/footer/footer";
 
 
 // ============================================
@@ -49,9 +50,7 @@ export default function RootLayout({
 
 
         {/* Footer globale con i link Privacy & Cookie Policy */}
-        <footer className="site-footer">
-          <IubendaLinks />
-        </footer>
+        <Footer />
 
 
         {/* Loader JS Iubenda caricato a fine body */}

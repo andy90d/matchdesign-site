@@ -54,6 +54,9 @@ body {
   background: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-body);
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
 }
 
 :focus-visible {
@@ -63,7 +66,7 @@ body {
 
 .site-footer {
   padding: var(--space-md);
-  text-align: center;
+  text-align: left;
   font-size: 0.875rem;
   background: var(--color-bg);
 }

@@ -1,0 +1,115 @@
+/* ============================================
+   FOOTER: contenitore
+   ============================================ */
+.footer {
+  margin-top: 10rem;
+  padding-block: var(--space-lg) var(--space-md);
+  background: var(--black);
+  border-top: 1px solid var(--color-border);
+  font-family: var(--font-mono);
+  font-size: 0.694rem;
+  text-align: left;
+}
+
+/* ============================================
+   FOOTER: griglia colonne
+   1 colonna su mobile, 2 su tablet, 4 su desktop
+   ============================================ */
+.grid {
+  display: grid;
+  gap: var(--space-sm);
+}
+
+@media (min-width: 40rem) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 64rem) {
+  .grid {
+    grid-template-columns: 1fr 2.5fr 1.5fr 2.5fr 1fr;
+  }
+}
+
+/* ============================================
+   FOOTER: titoli colonne
+   ============================================ */
+.title {
+  margin-bottom: var(--space-sm);
+  font-family: var(--font-mono);
+  font-size: 0.694rem;
+  color: var(--color-accent);
+}
+
+/* ============================================
+   FOOTER: badge responsive
+   ============================================ */
+.badge {
+  width: 50%;
+  max-width: 100px; /* Adatta a piacimento */
+  height: auto;
+  object-fit: cover;
+}
+
+@media (min-width: 40rem) {
+  .badge {
+    width: 60%;
+  }
+}
+
+@media (min-width: 64rem) {
+  .badge {
+    width: 75%;
+  }
+}
+
+/* ============================================
+   FOOTER: descrizione personale
+   ============================================ */
+.description {
+  font-size: 0.694rem;
+}
+
+/* ============================================
+   FOOTER: liste di link (mappa del sito e Iubenda)
+   ============================================ */
+.list {
+  list-style: none;
+}
+
+.list a {
+  display: inline-block;
+  padding-block: 0.375rem;
+  color: var(--color-text);
+}
+
+.list a:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+  /* Aggiunge maggiore separazione ai titoli successivi al primo nella colonna info */
+.info .title:not(:first-child) {
+  margin-top: var(--space-md); /* Modifica con var(--space-lg) se desideri più distanza */
+}
+
+/* ============================================
+   FOOTER: colonna info legali
+   ============================================ */
+.info p + p {
+  margin-top: 0.25rem;
+
+}
+
+/* ============================================
+   FOOTER: copyright
+   ============================================ */
+.legal {
+  margin-top: var(--space-lg);
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+}
+

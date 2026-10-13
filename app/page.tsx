@@ -82,18 +82,9 @@ export default function Home() {
         <p className="mt-md">
         Trovare queste risposte ci permette di capire dove intervenire davvero.</p>
         
-        <Button href="/work-together" iconEnd={<ArrowRight />} className="mt-md">
-        Da dove iniziamo?
+        <Button href="/contact" iconEnd={<ArrowRight />} className="mt-md">
+        Iniziamo?
        </Button>
-        
-      </section>
-
-       {/* --- Sezione form di contatto --- */}
-      <section className="container section">
-        <h1 className="text-center">Work together</h1>
-        <div className="mt-md">
-          <ContactForm />
-        </div>
       </section>
 
     </div>   

@@ -46,10 +46,8 @@ export default function Home() {
           Il tuo brand. La tua comunicazione. La tua direzione.
         </h2>
 
-        {/* --- Sottotitolo --- */}
         <h4 className="text-center mt-md">Mantenere tutto coerente diventa sempre più difficile.</h4>
 
-        {/* --- Paragrafo --- */}
         <p className="text-center">
           Che tu stia mettendo le basi per il tuo brand o che tu stia cercando di farlo crescere, è importante che la tua comunicazione sia coerente e chiara.
           MATCHdesign ti aiuta a fare chiarezza, mettere ordine e costruire una comunicazione capace di crescere senza perdere la propria direzione.
@@ -72,7 +70,7 @@ export default function Home() {
           e delle possibili soluzioni." </h3>
           <p>-Andrea</p>
         <Button href="/about" iconEnd={<ArrowRight />} className="mt-md">
-          Da dove nasce MATCHdesign
+          Chi sono
         </Button>
         </div>
       </ImageSection>

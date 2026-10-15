@@ -34,7 +34,7 @@ export default function WorkTogetherPage() {
 
 
 
-    <div className="container about-container mt-lg">
+    <div className="container about-container mt-lg mb-sm">
       <Columns id="servizi" columns={3}>
 
         <section>
@@ -105,7 +105,7 @@ export default function WorkTogetherPage() {
       </Columns>
     </div>
 
-    <section className="container text-fmicro mt-sm">
+    <section className="container button-center mt-sm mb-lg">
       <Button href="/contact" iconEnd={<ArrowRight />} className="mt-md">
       Da dove iniziamo?
       </Button>

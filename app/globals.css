@@ -188,6 +188,13 @@ p + p {
 .mt-lg { margin-top: var(--space-lg); }
 
 /* ============================================
+   LAYOUT: margine inveriore (usa la scala --space)
+   ============================================ */
+.mb-sm { margin-bottom: var(--space-sm); }
+.mb-md { margin-bottom: var(--space-md); }
+.mb-lg { margin-bottom: var(--space-lg); }
+
+/* ============================================
    LAYOUT: contenitore allineato all'header
    ============================================ */
 .container {
@@ -235,4 +242,11 @@ p + p {
   margin-bottom: var(--space-md);
   overflow: hidden;
   background: rgba(248, 247, 246, 0.08);
+}
+
+/* ============================================
+   LAYOUT: bottone al centro
+   ============================================ */
+.button-center {
+  text-align: center;
 }

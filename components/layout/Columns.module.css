@@ -29,3 +29,10 @@
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
+
+/* ===== SEZIONE: COLUMNS, ultimo elemento dispari centrato (tablet) ===== */
+@media (min-width: 48em) and (max-width: 63.999em) {
+  .columns[data-columns="3"] > .item:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+}

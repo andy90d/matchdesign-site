@@ -1,53 +1,87 @@
 {
   "Header": {
-  "home": "Home",
-  "about": "About",
-  "workTogether": "Services",
-  "contacts": "Contact",
-  "menu": "Menu",
-  "close": "Close",
-  "navLabel": "Main navigation"
-},
+    "home": "Home",
+    "about": "About",
+    "workTogether": "Services",
+    "contacts": "Contact",
+    "menu": "Menu",
+    "close": "Close",
+    "navLabel": "Main navigation"
+  },
 
-"Metadata": {
-  "title": "Brand Identity Systems for Founders and Professionals",
-  "description": "We build a system that safeguards your brand's consistency over time."
-},
+  "Footer": {
+    "badgeAlt": "MATCHdesign badge",
+    "description": "I'm a brand designer who helps organizations make better decisions and turn them into consistent communication systems.",
+    "sitemapTitle": "Sitemap",
+    "home": "Home",
+    "about": "About",
+    "workTogether": "Services",
+    "contact": "Contact",
+    "legalTitle": "Legal info",
+    "privacyTitle": "Privacy",
+    "copyright": "© {year} MATCHdesign. All rights reserved."
+  },
+
+  "Metadata": {
+    "title": "Brand Identity Systems for Founders and Professionals",
+    "description": "We build a system that safeguards your brand's consistency over time."
+  },
 
   "Home": {
-  "metadata": {
-    "title": "MATCHdesign",
-    "description": "We build the system that protects your brand's consistency over time."
+    "metadata": {
+      "title": "MATCHdesign",
+      "description": "We build the system that protects your brand's consistency over time."
+    },
+    "hero": {
+      "title": "Deep thinking.Design that matches.",
+      "text": "Strategy and design to give structure and consistency to your brand's communication.",
+      "cta": "How can I help you"
+    },
+    "intro": {
+      "title": "Your brand. Your communication. Your direction.",
+      "subtitle": "Keeping everything consistent is getting harder and harder.",
+      "text": "Whether you're laying the foundations of your brand or trying to make it grow, it's important that your communication is consistent and clear. MATCHdesign helps you gain clarity, put things in order and build communication that can grow without losing its direction.",
+      "cta": "Let's talk about your brand"
+    },
+    "quote": {
+      "text": "Before tackling a challenge, I believe it's important to have a clear view of the problem and of the possible solutions.",
+      "cta": "About me"
+    },
+    "questions": {
+      "title": "We don't start from design. We start from questions.",
+      "items": [
+        "What do we want to achieve?",
+        "What is stopping us from getting there?",
+        "What isn't working?",
+        "What needs to stay consistent?",
+        "And what can change?"
+      ],
+      "closing": "Finding these answers lets us understand where to really step in.",
+      "cta": "Shall we start?"
+    },
+    "form": {
+      "title": "We don't start from design. We start from questions."
+    }
   },
-  "hero": {
-    "title": "Deep thinking.Design that matches.",
-    "text": "Strategy and design to give structure and consistency to your brand's communication.",
-    "cta": "How can I help you"
-  },
-  "intro": {
-    "title": "Your brand. Your communication. Your direction.",
-    "subtitle": "Keeping everything consistent is getting harder and harder.",
-    "text": "Whether you're laying the foundations of your brand or trying to make it grow, it's important that your communication is consistent and clear. MATCHdesign helps you gain clarity, put things in order and build communication that can grow without losing its direction.",
-    "cta": "Let's talk about your brand"
-  },
-  "quote": {
-    "text": "“Before tackling a challenge, I believe it's important to have a clear view of the problem and of the possible solutions.”",
-    "cta": "About me"
-  },
-  "questions": {
-    "title": "We don't start from design. We start from questions.",
-    "items": [
-      "What do we want to achieve?",
-      "What is stopping us from getting there?",
-      "What isn't working?",
-      "What needs to stay consistent?",
-      "And what can change?"
-    ],
-    "closing": "Finding these answers lets us understand where to really step in.",
-    "cta": "Shall we start?"
-  },
-  "form": {
-    "title": "We don't start from design. We start from questions."
+
+  "workTogether": {
+    "OrientationCard": {
+      "orientation-eyebrow": "01 / FACILITATION",
+      "orientation-title": "Focus on the right problem",
+      "orientation-text": "I help people understand complex situations by guiding them to focus on the problem, share their perspectives, and recognize what really matters.",
+      "orientation-note": "From confusion to a shared understanding."
+    },
+    "StrategyCard": {
+      "strategy-eyebrow": "02 / STRATEGY",
+      "strategy-title": "Defining a direction.",
+      "strategy-text": "I analyze the context and develop criteria, priorities, and principles to guide the brand’s communication decisions.",
+      "strategy-note": "From understanding to a strategic direction."
+    },
+    "DesignCard": {
+      "design-eyebrow": "03 / DESIGN",
+      "design-title": "Shaping Decisions.",
+      "design-text": "I translate the brand’s needs and direction into concrete, consistent visual identities, systems, and communication tools that can be used over time.",
+      "design-note": "From direction to a concrete system."
+    }
   }
-}
 }

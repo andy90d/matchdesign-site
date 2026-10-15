@@ -2,41 +2,71 @@
 // IMPORT
 // ============================================
 import type { Metadata } from "next";
-import { IubendaHead, IubendaLoader, IubendaLinks } from "@/components/legal/Iubenda"; 
+import { notFound } from "next/navigation";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { routing } from "@/i18n/routing";
+import { IubendaHead, IubendaLoader } from "@/components/legal/Iubenda";
 import { dmSans, spaceMono, unbounded } from "@/lib/fonts/fonts";
-import "./globals.css";
+import "../globals.css";
 import Header from "@/components/header/header";
 import Footer from "@/components/footer/footer";
 
 
 // ============================================
-// METADATA SEO (title e description del sito)
+// LINGUE GENERATE IN FASE DI BUILD (it, en)
 // ============================================
-export const metadata: Metadata = {
-  title: "Sistemi di Brand Identity per Founder e Professionisti",
-  description:
-    "Costruiamo il sistema che protegge la coerenza del tuo brand nel tempo.",
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+
+// ============================================
+// METADATA SEO (title e description, per lingua)
+// ============================================
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+
+  return {
+    title: t("title"),
+    description: t("description"),
     icons: {
-    icon: "/icon.svg", // Assicurati che il file esista nella cartella public/ o app/
-    // oppure se usi un file .svg o .png:
-    // icon: "/assets/images/tuo-favicon.svg",
-  },
-};
+      icon: "/icon.svg",
+    },
+  };
+}
 
 
 // ============================================
 // LAYOUT PRINCIPALE (avvolge tutte le pagine)
 // ============================================
-export default function RootLayout({
+export default async function LocaleLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }) {
+  const { locale } = await params;
+
+  // Se la lingua nell'URL non esiste (es. /fr) mostra la pagina 404
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
+  setRequestLocale(locale);
+
   return (
 
     // --- TAG HTML: lingua e font applicati a tutto il sito ---
     <html
-      lang="it" suppressHydrationWarning
+      lang={locale}
+      suppressHydrationWarning
       className={`${unbounded.variable} ${dmSans.variable} ${spaceMono.variable}`}>
 
       {/* --- HEAD: script nell'intestazione della pagina --- */}
@@ -48,15 +78,16 @@ export default function RootLayout({
 
       {/* --- BODY: contenuto visibile --- */}
       <body>
+        <NextIntlClientProvider>
 
-        {/* Header (menu di navigazione) e contenuto della pagina */}
-           <Header />
-              <main>{children}</main>
+          {/* Header (menu di navigazione) e contenuto della pagina */}
+          <Header />
+          <main>{children}</main>
 
+          {/* Footer globale con i link Privacy & Cookie Policy */}
+          <Footer />
 
-        {/* Footer globale con i link Privacy & Cookie Policy */}
-        <Footer />
-
+        </NextIntlClientProvider>
 
         {/* Loader JS Iubenda caricato a fine body */}
         <IubendaLoader />

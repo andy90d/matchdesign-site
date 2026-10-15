@@ -1,40 +1,60 @@
 // ============================================
 // IMPORT
 // ============================================
+import { Fragment } from "react";
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import HomeImage from "@/components/home/home-image";
 import Button from "@/components/button/button";
 import ArrowRight from "@/components/icons/arrow-right";
 import ImageSection from "@/components/image-section/image-section";
 import ContactForm from "@/components/contact-form/contact-form";
 
+
 // ============================================
-// METADATA SEO (title e description della home)
+// METADATA SEO (title e description della home, per lingua)
 // ============================================
-export const metadata: Metadata = {
-  title: "MATCHdesign",
-  description:
-    "Costruiamo il sistema che protegge la coerenza del tuo brand nel tempo.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Home.metadata" });
+
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
 
 
 // ============================================
 // PAGINA HOME
 // ============================================
-export default function Home() {
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
+  const t = await getTranslations({ locale, namespace: "Home" });
+  const questions = t.raw("questions.items") as string[];
+
   return (
-     <div className="home-page">
+    <div className="home-page">
 
       {/* --- Immagine principale --- */}
-      
       <HomeImage>
-        <h1 className="sr-only">Capire a fondo. Progettare con criterio.</h1>
-        <p className= "text-center">Strategia e design per dare struttura e coerenza alla comunicazione del tuo brand.</p>
+        <h1 className="sr-only">{t("hero.title")}</h1>
+        <p className="text-center">{t("hero.text")}</p>
         <div className="text-center mt-md">
-         <Button href="/work-together" iconEnd={<ArrowRight />}>
-         Come posso aiutarti
-         </Button>
-  </div>      
+          <Button href="/work-together" iconEnd={<ArrowRight />}>
+            {t("hero.cta")}
+          </Button>
+        </div>
       </HomeImage>
 
 
@@ -42,66 +62,63 @@ export default function Home() {
       <section className="container section home-intro">
 
         {/* --- Titolo --- */}
-        <h2 className="text-center">
-          Il tuo brand. La tua comunicazione. La tua direzione.
-        </h2>
+        <h2 className="text-center">{t("intro.title")}</h2>
 
-        <h4 className="text-center mt-md">Mantenere tutto coerente diventa sempre più difficile.</h4>
+        <h4 className="text-center mt-md">{t("intro.subtitle")}</h4>
 
-        <p className="text-center">
-          Che tu stia mettendo le basi per il tuo brand o che tu stia cercando di farlo crescere, è importante che la tua comunicazione sia coerente e chiara.
-          MATCHdesign ti aiuta a fare chiarezza, mettere ordine e costruire una comunicazione capace di crescere senza perdere la propria direzione.
-        </p>
+        <p className="text-center">{t("intro.text")}</p>
 
         {/* --- Bottone con icona dopo il testo --- */}
         <div className="text-center mt-lg">
           <Button href="/contact" iconEnd={<ArrowRight />}>
-            Parliamo del tuo brand
+            {t("intro.cta")}
           </Button>
         </div>
 
       </section>
 
-    {/* --- Sezione immagine con testo e bottone --- */}
+
+      {/* --- Sezione immagine con citazione e bottone --- */}
       <ImageSection src="/assets/images/ImmagineSezioneTest.jpg" alt="">
-       <div className="container">
-        <h3 className="title-narrow">"Credo che prima di affrontare una sfida,
-          sia importante avere una visione chiara del problema
-          e delle possibili soluzioni." </h3>
+        <div className="container">
+          <h3 className="title-narrow">{t("quote.text")}</h3>
           <p>-Andrea</p>
-        <Button href="/about" iconEnd={<ArrowRight />} className="mt-md">
-          Chi sono
-        </Button>
+          <Button href="/about" iconEnd={<ArrowRight />} className="mt-md">
+            {t("quote.cta")}
+          </Button>
         </div>
       </ImageSection>
 
-      <section className="container section"> 
-        <h3>Non partiamo dal design. Partiamo dalle domande.</h3>
+
+      {/* --- Sezione domande --- */}
+      <section className="container section">
+        <h3>{t("questions.title")}</h3>
 
         <p className="mt-md">
-          Cosa vogliamo ottenere?<br />
-          Cosa ci impedisce di arrivarci?<br />
-          Cosa non sta funzionando?<br />
-          Cosa deve rimanere coerente?<br />
-          E cosa può cambiare?<br />
+          {questions.map((question, index) => (
+            <Fragment key={index}>
+              {question}
+              <br />
+            </Fragment>
+          ))}
         </p>
-        <p className="mt-md">
-        Trovare queste risposte ci permette di capire dove intervenire davvero.</p>
-        
+        <p className="mt-md">{t("questions.closing")}</p>
+
         <Button href="/contact" iconEnd={<ArrowRight />} className="mt-md">
-        Iniziamo?
-       </Button>
+          {t("questions.cta")}
+        </Button>
       </section>
 
-    <section className="section--highlight">
-      <div className="container">
-        <h2>Non partiamo dal design. Partiamo dalle domande.</h2>
 
-        <ContactForm />
+      {/* --- Sezione evidenziata con form contatti --- */}
+      <section className="section--highlight">
+        <div className="container">
+          <h2>{t("form.title")}</h2>
 
-      </div>
-    </section>
+          <ContactForm />
+        </div>
+      </section>
 
-    </div>   
-  )
+    </div>
+  );
 }

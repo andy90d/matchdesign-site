@@ -1,27 +1,47 @@
 "use client";
 
+// ============================================
+// IMPORT
+// ============================================
 import { useState } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useLocale, useTranslations } from "next-intl";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
+import { routing } from "@/i18n/routing";
 import styles from "./header.module.css";
 
+
+// ============================================
+// VOCI DEL MENU (key = chiave nel dizionario)
+// ============================================
 const NAV_ITEMS = [
-  { label: "Home", href: "/" },
-  { label: "Studio", href: "/about" },
-  { label: "Servizi", href: "/work-together" },
- /* { label: "Lavori", href: "/portfolio" },*/
-  { label: "Contatti", href: "/contact" },
+  { key: "home", href: "/" },
+  { key: "about", href: "/about" },
+  { key: "workTogether", href: "/work-together" },
+  /* { key: "portfolio", href: "/portfolio" }, */
+  { key: "contacts", href: "/contact" },
 ];
 
+
+// ============================================
+// HEADER
+// ============================================
 export default function Header() {
   const pathname = usePathname();
+  const router = useRouter();
+  const locale = useLocale();
   const [open, setOpen] = useState(false);
+  const t = useTranslations("Header");
+
+  // --- Cambio lingua: resta sulla stessa pagina ---
+  function changeLanguage(newLocale: string) {
+    router.replace(pathname, { locale: newLocale });
+  }
 
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
 
-                {/* --- Logo (link alla home) --- */}
+        {/* --- Logo (link alla home) --- */}
         <Link href="/" className={styles.logo} onClick={() => setOpen(false)}>
           <img
             src="/assets/images/Logo-Main-Color-Dark-BG.svg"
@@ -31,6 +51,7 @@ export default function Header() {
           />
         </Link>
 
+        {/* --- Pulsante menu (solo mobile) --- */}
         <button
           type="button"
           className={styles.menuButton}
@@ -38,35 +59,56 @@ export default function Header() {
           aria-controls="main-nav"
           onClick={() => setOpen(!open)}
         >
-          {open ? "Chiudi" : "Menu"}
+          {open ? t("close") : t("menu")}
         </button>
 
+        {/* --- Navigazione principale --- */}
         <nav
           id="main-nav"
-          aria-label="Principale"
+          aria-label={t("navLabel")}
           className={`${styles.nav} ${open ? styles.navOpen : ""}`}
         >
           <ul className={styles.list}>
-            {NAV_ITEMS.map(({ label, href }) => (
-              <li key={href}>
-                <Link
-                  href={href}
-                  className={styles.link}
-                  aria-current={pathname === href ? "page" : undefined}
-                  onClick={() => setOpen(false)}
-                >
-                  {label}
-                </Link>
-              </li>
-            ))}
+            {NAV_ITEMS.map((item) => {
+              const isActive =
+                item.href === "/"
+                  ? pathname === "/"
+                  : pathname.startsWith(item.href);
+
+              return (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className={styles.link}
+                    aria-current={isActive ? "page" : undefined}
+                    onClick={() => setOpen(false)}
+                  >
+                    {t(item.key)}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
 
+        {/* --- Switch lingua IT | EN --- */}
         <div className={styles.lang}>
-          <span lang="it">IT</span>
-          <span aria-hidden="true">|</span>
-          <span lang="en">EN</span>
+          {routing.locales.map((code, index) => (
+            <span key={code} className={styles.langItem}>
+              {index > 0 && <span aria-hidden="true">|</span>}
+              <button
+                type="button"
+                lang={code}
+                className={styles.langButton}
+                aria-current={locale === code ? "true" : undefined}
+                onClick={() => changeLanguage(code)}
+              >
+                {code.toUpperCase()}
+              </button>
+            </span>
+          ))}
         </div>
+
       </div>
     </header>
   );

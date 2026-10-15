@@ -205,11 +205,17 @@ p + p {
   padding-block: clamp(var(--space-md), 8vw, var(--space-lg));
 }
 
+.section.home-intro {
+  padding-top: 3rem;
+  padding-bottom: 5rem;
+}
+
 /* ============================================
    LAYOUT: sezione con sfondo colorato
    ============================================ */
 .section--highlight {
   background-color: #D9453D;
+  padding-block: clamp(5rem, 12vw, 10rem);
 }
 
 /* ============================================

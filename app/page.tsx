@@ -26,11 +26,20 @@ export default function Home() {
      <div className="home-page">
 
       {/* --- Immagine principale --- */}
-      <HomeImage/>
+      
+      <HomeImage>
+        <h1 className="sr-only">Capire a fondo. Progettare con criterio.</h1>
+        <p className= "text-center">Strategia e design per dare struttura e coerenza alla comunicazione del tuo brand.</p>
+        <div className="text-center mt-md">
+         <Button href="/work-together" iconEnd={<ArrowRight />}>
+         Come posso aiutarti
+         </Button>
+  </div>      
+      </HomeImage>
 
 
       {/* --- Sezione testo introduttivo (margini laterali e spazio verticale) --- */}
-      <section className="container section">
+      <section className="container section home-intro">
 
         {/* --- Titolo --- */}
         <h2 className="text-center">
@@ -38,19 +47,18 @@ export default function Home() {
         </h2>
 
         {/* --- Sottotitolo --- */}
-        <h4 className="text-center mt-md">Il tuo brand è cresciuto. Ma la sua comunicazione è cresciuta con lui?</h4>
+        <h4 className="text-center mt-md">Mantenere tutto coerente diventa sempre più difficile.</h4>
 
         {/* --- Paragrafo --- */}
         <p className="text-center">
-          Quando aumentano persone, canali, prodotti e messaggi, mantenere tutto coerente diventa più difficile.
-
+          Che tu stia mettendo le basi per il tuo brand o che tu stia cercando di farlo crescere, è importante che la tua comunicazione sia coerente e chiara.
           MATCHdesign ti aiuta a fare chiarezza, mettere ordine e costruire una comunicazione capace di crescere senza perdere la propria direzione.
         </p>
 
         {/* --- Bottone con icona dopo il testo --- */}
         <div className="text-center mt-lg">
-          <Button href="/work-together" iconEnd={<ArrowRight />}>
-            Come posso aiutarti
+          <Button href="/contact" iconEnd={<ArrowRight />}>
+            Parliamo del tuo brand
           </Button>
         </div>
 
@@ -86,6 +94,15 @@ export default function Home() {
         Iniziamo?
        </Button>
       </section>
+
+    <section className="section--highlight">
+      <div className="container">
+        <h2>Non partiamo dal design. Partiamo dalle domande.</h2>
+
+        <ContactForm />
+
+      </div>
+    </section>
 
     </div>   
   )

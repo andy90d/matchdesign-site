@@ -2,7 +2,6 @@
 // IMPORT
 // ============================================
 import styles from "./home-image.module.css";
-import homeimage from  "@/public/assets/images/test home page_1.png"
 import Image from "next/image";
 
 
@@ -25,7 +24,7 @@ export default function HomeImage({ children }: HomeImageProps) {
 
       <div className={styles.frame}>
         <Image
-        src="/assets/images/test home page_1.png"
+        src="/assets/images/home_2.jpg"
         alt="Hero image MATCHdesign"
         fill
         priority

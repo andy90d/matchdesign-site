@@ -30,7 +30,7 @@ export default function AboutHero({
       {image && (
         <Image
           className={styles.image}
-          src={"/assets/images/ImmagineSezioneTest.jpg"}
+          src={"/assets/images/TestWwm.jpg"}
           alt={image.alt}
           fill
           priority

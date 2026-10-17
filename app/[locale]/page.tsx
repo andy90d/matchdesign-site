@@ -79,7 +79,7 @@ export default async function Home({
 
 
       {/* --- Sezione immagine con citazione e bottone --- */}
-      <ImageSection src="/assets/images/ImmagineSezioneTest.jpg" alt="">
+      <ImageSection src="/assets/images/TestWwm.jpg" alt="">
         <div className="container">
           <h3 className="title-narrow">{t("quote.text")}</h3>
           <p>-Andrea</p>

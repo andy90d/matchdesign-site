@@ -1,7 +1,7 @@
 import styles from "./AboutPhoto.module.css";
 
 type Props = {
-  src: "/public/assets/images/default-placeholder-businessman-half-length-portr-portrait-photo-avatar-man-gray-color-113622427";
+  src: "/assets/images/TestAbout.jpg";
   alt: "Ritratto";
   width: number;  // dimensioni intrinseche del file, evitano layout shift
   height: number;

@@ -46,7 +46,7 @@ const services = [
   return (
     <div>
 
-      <ImageSection src="/assets/images/ImmagineSezioneTest.jpg" alt="..." fit="cover">
+      <ImageSection src="/assets/images/TestAbout.jpg" alt="..." fit="cover">
         <h2 className="w-full text-center">Non tutti i problemi hanno bisogno
           dello stesso tipo di intervento.</h2>
      </ImageSection>

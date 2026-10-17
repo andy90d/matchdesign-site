@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <div className="about-page">
       <AboutHero
-         image={{ src: "/assets/images/ImmagineSezioneTest.jpg", alt: "…", objectPosition: "center" }}
+         image={{ src: "/assets/images/TestAbout.jpg", alt: "…", objectPosition: "center" }}
       >
         <div className="container">
           <h3>Oggi</h3>
@@ -28,7 +28,7 @@ export default function Home() {
       <div className="container">
         <Columns id="storia" columns={2}>
         <Image
-          src="/assets/images/ImmagineSezioneTest.jpg"
+          src="/assets/images/testAbout2.jpg"
           alt="Descrizione dell’immagine"
           width={1000}
           height={1250}

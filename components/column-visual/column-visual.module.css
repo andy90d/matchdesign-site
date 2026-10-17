@@ -1,0 +1,38 @@
+/* ============================================
+   COLUMN VISUAL: cornice (stesse proporzioni
+   per tutte le colonne, modificabili con la prop)
+   ============================================ */
+.visual {
+  position: relative;
+  width: 100%;
+  aspect-ratio: var(--visual-ratio, 4 / 3);
+  overflow: hidden;
+  margin-bottom: var(--space-sm);
+}
+
+
+/* ============================================
+   COLUMN VISUAL: immagine
+   ============================================ */
+.image {
+  object-fit: cover;
+}
+
+
+/* ============================================
+   COLUMN VISUAL: SVG inline centrato
+   (il colore si cambia con "color" sul contenitore)
+   ============================================ */
+.svg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: var(--color-accent);
+}
+
+.svg > svg {
+  width: 100%;
+  height: 100%;
+}

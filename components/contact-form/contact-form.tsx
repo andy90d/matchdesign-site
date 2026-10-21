@@ -4,6 +4,7 @@
 // IMPORT
 // ============================================
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import Button from "@/components/button/button";
 import styles from "./contact-form.module.css";
 
@@ -18,6 +19,7 @@ const PRIVACY_URL = "#"; // sostituisci con l'indirizzo della privacy policy Iub
 // FORM DI CONTATTO
 // ============================================
 export default function ContactForm() {
+  const t = useTranslations("Buttons.contact");
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -92,7 +94,7 @@ export default function ContactForm() {
       {/* --- Pulsante di invio --- */}
       <div>
         <Button type="submit">
-          {status === "sending" ? "Invio in corso..." : "Invia messaggio"}
+          {status === "sending" ? t("sending") : t("submit")}
         </Button>
       </div>
 

@@ -18,6 +18,7 @@ export const metadata: Metadata = {
 
 export default async function WorkTogetherPage() {
   const t = await getTranslations("workTogether");
+  const buttonT = await getTranslations("Buttons.workTogether");
   
   // ===== SEZIONE: DATI SERVIZI =====
 const services = [
@@ -82,7 +83,7 @@ const services = [
 
     <section className="container button-center mt-sm mb-lg">
       <Button href="/contact" iconEnd={<ArrowRight />} className="mt-md">
-      Da dove iniziamo?
+      {buttonT("start")}
       </Button>
     </section>
     

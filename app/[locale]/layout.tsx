@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
+import { getCommonMessages } from "@/i18n/messages";
 import { IubendaHead, IubendaLoader } from "@/components/legal/Iubenda";
 import { dmSans, spaceMono, unbounded } from "@/lib/fonts/fonts";
 import "../globals.css";
@@ -60,6 +61,7 @@ export default async function LocaleLayout({
   }
 
   setRequestLocale(locale);
+  const messages = await getCommonMessages(locale);
 
   return (
 
@@ -78,7 +80,7 @@ export default async function LocaleLayout({
 
       {/* --- BODY: contenuto visibile --- */}
       <body>
-        <NextIntlClientProvider>
+        <NextIntlClientProvider messages={messages}>
 
           {/* Header (menu di navigazione) e contenuto della pagina */}
           <Header />

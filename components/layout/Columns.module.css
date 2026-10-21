@@ -13,6 +13,14 @@
 }
 
 @media (min-width: 48em) {
+  .columns[id="storia"] > .item:first-child {
+    position: sticky;
+    top: 6rem;
+    align-self: start;
+  }
+}
+
+@media (min-width: 48em) {
   .columns[data-columns="2"],
   .columns[data-columns="3"],
   .columns[data-columns="4"] {

@@ -1,0 +1,22 @@
+{
+  "workTogether": {
+    "OrientationCard": {
+      "orientation-eyebrow": "01 / FACILITATION",
+      "orientation-title": "Focus on the right problem",
+      "orientation-text": "I help people understand complex situations by guiding them to focus on the problem, share their perspectives, and recognize what really matters.",
+      "orientation-note": "From confusion to a shared understanding."
+    },
+    "StrategyCard": {
+      "strategy-eyebrow": "02 / STRATEGY",
+      "strategy-title": "Defining a direction.",
+      "strategy-text": "I analyze the context and develop criteria, priorities, and principles to guide the brand’s communication decisions.",
+      "strategy-note": "From understanding to a strategic direction."
+    },
+    "DesignCard": {
+      "design-eyebrow": "03 / DESIGN",
+      "design-title": "Shaping Decisions.",
+      "design-text": "I translate the brand’s needs and direction into concrete, consistent visual identities, systems, and communication tools that can be used over time.",
+      "design-note": "From direction to a concrete system."
+    }
+  }
+}

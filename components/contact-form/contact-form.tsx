@@ -4,22 +4,38 @@
 // IMPORT
 // ============================================
 import { useState } from "react";
-import { useTranslations } from "next-intl";
 import Button from "@/components/button/button";
 import styles from "./contact-form.module.css";
 
-
-// ============================================
-// CONFIGURAZIONE (link all'informativa privacy)
-// ============================================
-const PRIVACY_URL = "#"; // sostituisci con l'indirizzo della privacy policy Iubenda
-
+export type ContactFormMessages = {
+  name: string;
+  email: string;
+  message: string;
+  honeypot: string;
+  privacyPrefix: string;
+  privacyLink: string;
+  submit: string;
+  sending: string;
+  success: string;
+  errors: {
+    serviceNotConfigured: string;
+    invalidRequest: string;
+    requiredFields: string;
+    invalidEmail: string;
+    fieldTooLong: string;
+    consentRequired: string;
+    sendFailed: string;
+  };
+};
 
 // ============================================
 // FORM DI CONTATTO
 // ============================================
-export default function ContactForm() {
-  const t = useTranslations("Buttons.contact");
+export default function ContactForm({
+  messages,
+}: {
+  messages: ContactFormMessages;
+}) {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -46,12 +62,20 @@ export default function ContactForm() {
         }),
       });
       const result = await response.json();
-      if (!response.ok) throw new Error(result.error ?? "Invio non riuscito.");
+      if (!response.ok) {
+        throw new Error(
+          typeof result.errorCode === "string" ? result.errorCode : "sendFailed"
+        );
+      }
 
       form.reset();
       setStatus("success");
     } catch (error) {
-      setErrorMessage(error instanceof Error ? error.message : "Invio non riuscito.");
+      const errorCode = error instanceof Error ? error.message : "sendFailed";
+      const translatedError = Object.entries(messages.errors).find(
+        ([code]) => code === errorCode
+      )?.[1];
+      setErrorMessage(translatedError ?? messages.errors.sendFailed);
       setStatus("error");
     }
   }
@@ -61,25 +85,25 @@ export default function ContactForm() {
 
       {/* --- Campo nome --- */}
       <div className={styles.field}>
-        <label htmlFor="name">Nome</label>
+        <label htmlFor="name">{messages.name}</label>
         <input id="name" name="name" type="text" autoComplete="name" maxLength={100} required />
       </div>
 
       {/* --- Campo email --- */}
       <div className={styles.field}>
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email">{messages.email}</label>
         <input id="email" name="email" type="email" autoComplete="email" maxLength={200} required />
       </div>
 
       {/* --- Campo messaggio --- */}
       <div className={styles.field}>
-        <label htmlFor="message">Messaggio</label>
+        <label htmlFor="message">{messages.message}</label>
         <textarea id="message" name="message" rows={6} maxLength={4000} required />
       </div>
 
       {/* --- Campo trappola per i bot (invisibile agli utenti) --- */}
       <div className={styles.trap} aria-hidden="true">
-        <label htmlFor="website">Non compilare questo campo</label>
+        <label htmlFor="website">{messages.honeypot}</label>
         <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
       </div>
 
@@ -87,21 +111,22 @@ export default function ContactForm() {
       <div className={styles.consent}>
         <input id="consent" name="consent" type="checkbox" required />
         <label htmlFor="consent">
-          Ho letto l&apos;<a href={"https://www.iubenda.com/privacy-policy/18476717"}>informativa privacy</a>
+          {messages.privacyPrefix}
+          <a href="https://www.iubenda.com/privacy-policy/18476717">{messages.privacyLink}</a>
         </label>
       </div>
 
       {/* --- Pulsante di invio --- */}
       <div>
         <Button type="submit">
-          {status === "sending" ? t("sending") : t("submit")}
+          {status === "sending" ? messages.sending : messages.submit}
         </Button>
       </div>
 
       {/* --- Messaggi di esito (letti dagli screen reader) --- */}
       {status === "success" && (
         <p role="status" className={styles.success}>
-          Messaggio inviato. Ti risponderemo il prima possibile.
+          {messages.success}
         </p>
       )}
       {status === "error" && (

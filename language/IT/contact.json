@@ -1,0 +1,30 @@
+{
+  "Contact": {
+    "meta": {
+      "title": "Contatti | MATCHdesign",
+      "description": "Raccontami del tuo brand e della fase di lavoro in cui ti trovi."
+    },
+    "title": "Contattami",
+    "intro": "Raccontami di più sulla fase di lavoro in cui ti trovi. Se stai progettando di lanciare un brand, dimmi la tua idea. Se hai già un'azienda e percepisci che qualcosa non va, cerchiamo di individuare il problema reale.",
+    "form": {
+      "name": "Nome",
+      "email": "Email",
+      "message": "Messaggio",
+      "honeypot": "Non compilare questo campo",
+      "privacyPrefix": "Ho letto l'",
+      "privacyLink": "informativa privacy",
+      "submit": "Invia messaggio",
+      "sending": "Invio in corso...",
+      "success": "Messaggio inviato. Ti risponderemo il prima possibile.",
+      "errors": {
+        "serviceNotConfigured": "Il servizio non è configurato.",
+        "invalidRequest": "La richiesta non è valida.",
+        "requiredFields": "Compila tutti i campi.",
+        "invalidEmail": "L'indirizzo email non è valido.",
+        "fieldTooLong": "Uno dei campi è troppo lungo.",
+        "consentRequired": "Conferma di aver letto l'informativa privacy.",
+        "sendFailed": "Invio non riuscito. Riprova più tardi."
+      }
+    }
+  }
+}

@@ -1,5 +1,16 @@
 {
   "workTogether": {
+    "meta": {
+      "title": "Creazione Logo e Servizi di Brand Identity Aziendale | MATCHdesign",
+      "description": "Dalla progettazione del logo al restyling dell'immagine aziendale completa. Scopri i nostri servizi di brand design e grafica per far crescere la tua attività."
+    },
+    "hero": {
+      "title": "Non tutti i problemi hanno bisogno dello stesso tipo di intervento."
+    },
+    "intro": {
+      "title": "Ogni problema richiede il giusto approccio.",
+      "text": "Non tutte le sfide di comunicazione si affrontano allo stesso modo. A volte serve fare chiarezza, altre costruire qualcosa di nuovo. MATCHdesign combina strategia e design per aiutare le organizzazioni a prendere decisioni migliori e trasformarle in sistemi di comunicazione coerenti."
+    },
     "OrientationCard": {
       "orientation-eyebrow": "01 / ORIENTAMENTO",
       "orientation-title": "Capire meglio il problema",

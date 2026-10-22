@@ -17,12 +17,16 @@ export async function getMessages(locale: Locale) {
     locale === "it"
       ? await Promise.all([
           import("../language/IT/about.json"),
+          import("../language/IT/contact.json"),
           import("../language/IT/home.json"),
+          import("../language/IT/portfolio.json"),
           import("../language/IT/work-together.json"),
         ])
       : await Promise.all([
           import("../language/EN/about.json"),
+          import("../language/EN/contact.json"),
           import("../language/EN/home.json"),
+          import("../language/EN/portfolio.json"),
           import("../language/EN/work-together.json"),
         ]);
 

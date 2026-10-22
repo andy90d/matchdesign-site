@@ -29,13 +29,13 @@ export async function POST(request: Request) {
   // --- Chiave Resend (letta qui, non a livello di modulo) ---
   const apiKey = process.env.match_design_site_ContactForm || process.env.RESEND_API_KEY;
   if (!apiKey) {
-    return Response.json({ error: "Servizio non configurato." }, { status: 500 });
+    return Response.json({ errorCode: "serviceNotConfigured" }, { status: 500 });
   }
 
   // --- Lettura dei dati ricevuti ---
   const body = await request.json().catch(() => null);
   if (!body || typeof body !== "object") {
-    return Response.json({ error: "Richiesta non valida." }, { status: 400 });
+    return Response.json({ errorCode: "invalidRequest" }, { status: 400 });
   }
   const data = body as Record<string, unknown>;
 
@@ -50,21 +50,21 @@ export async function POST(request: Request) {
   const message = clean(data.message);
 
   if (!name || !email || !message) {
-    return Response.json({ error: "Compila tutti i campi." }, { status: 400 });
+    return Response.json({ errorCode: "requiredFields" }, { status: 400 });
   }
   if (!EMAIL_PATTERN.test(email)) {
-    return Response.json({ error: "Indirizzo email non valido." }, { status: 400 });
+    return Response.json({ errorCode: "invalidEmail" }, { status: 400 });
   }
   if (
     name.length > LIMITS.name ||
     email.length > LIMITS.email ||
     message.length > LIMITS.message
   ) {
-    return Response.json({ error: "Uno dei campi è troppo lungo." }, { status: 400 });
+    return Response.json({ errorCode: "fieldTooLong" }, { status: 400 });
   }
   if (data.consent !== true) {
     return Response.json(
-      { error: "Conferma di aver letto l'informativa privacy." },
+      { errorCode: "consentRequired" },
       { status: 400 }
     );
   }
@@ -82,7 +82,7 @@ export async function POST(request: Request) {
   if (error) {
     console.error("Errore invio email:", error);
     return Response.json(
-      { error: "Invio non riuscito. Riprova più tardi." },
+      { errorCode: "sendFailed" },
       { status: 500 }
     );
   }

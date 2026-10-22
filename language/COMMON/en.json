@@ -24,15 +24,7 @@
     "title": "Brand Identity Systems for Founders and Professionals",
     "description": "We build a system that safeguards your brand's consistency over time."
   },
-  "HomeMetadata": {
-    "title": "MATCHdesign",
-    "description": "We build the system that protects your brand's consistency over time."
-  },
   "Buttons": {
-    "contact": {
-      "submit": "Send message",
-      "sending": "Sending..."
-    },
     "workTogether": {
       "start": "Where do we start?"
     }

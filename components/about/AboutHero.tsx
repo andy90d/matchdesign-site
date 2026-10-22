@@ -12,9 +12,9 @@ type HeroImage = {
 type Props = {
   /** Contenuto sovrapposto all'immagine (titolo e paragrafo). */
   children: ReactNode;
+  cueLabel: string;
   /** Se manca, l'hero mostra solo lo sfondo scuro. */
   image?: HeroImage;
-  cueLabel?: string;
   /** Deve coincidere con l'id del layout a cui scorre la freccia. */
   cueHref?: string;
 };
@@ -22,7 +22,7 @@ type Props = {
 export default function AboutHero({
   children,
   image,
-  cueLabel = "Scorri",
+  cueLabel,
   cueHref = "#storia",
 }: Props) {
   return (

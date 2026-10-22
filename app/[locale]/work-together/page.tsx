@@ -1,7 +1,5 @@
-// app/work-together/page.tsx
-
 import type { Metadata } from "next";
-import ImageSection from "@/components/image-section/image-section"; // <- metti il percorso reale
+import ImageSection from "@/components/image-section/image-section";
 import Card from "@/components/card/card";
 import OrientationIcon from "@/components/icons/orientation-icon";
 import StrategyIcon from "@/components/icons/strategy-icon";
@@ -9,14 +7,29 @@ import DesignIcon from "@/components/icons/design-icon";
 import Button from "@/components/button/button";
 import ArrowRight from "@/components/icons/arrow-right";
 import Columns from "@/components/layout/Columns";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "Work together | MATCHdesign",
-  description: "Scopri come possiamo lavorare insieme.", // sostituisci con il tuo testo
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "workTogether.meta" });
 
-export default async function WorkTogetherPage() {
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
+
+export default async function WorkTogetherPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations("workTogether");
   const buttonT = await getTranslations("Buttons.workTogether");
   
@@ -47,20 +60,13 @@ const services = [
   return (
     <div>
 
-      <ImageSection src="/assets/images/TestAbout.jpg" alt="..." fit="cover">
-        <h2 className="w-full text-center">Non tutti i problemi hanno bisogno
-          dello stesso tipo di intervento.</h2>
+      <ImageSection src="/assets/images/TestAbout.jpg" fit="cover">
+        <h1 className="w-full text-center">{t("hero.title")}</h1>
      </ImageSection>
 
      <section className="container mt-lg">
-        <h2>Ogni problema richiede il giusto approccio.</h2>
-        <p>
-          Non tutte le sfide di comunicazione si affrontano allo stesso modo.
-          A volte serve fare chiarezza, altre costruire qualcosa di nuovo.
-          MATCHdesign combina strategia e design per aiutare le organizzazioni 
-          a prendere decisioni migliori e trasformarle in sistemi di 
-          comunicazione coerenti.
-        </p>
+        <h2>{t("intro.title")}</h2>
+        <p>{t("intro.text")}</p>
       </section>
 
 

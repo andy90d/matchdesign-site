@@ -1,0 +1,30 @@
+{
+  "Contact": {
+    "meta": {
+      "title": "Contact | Book a Branding & Visual Identity Consultation | MATCHdesign",
+      "description": "Looking to elevate your logo or company image? Contact MATCHdesign to discuss your brand identity project."
+    },
+    "title": "Get in touch",
+    "intro": "Tell me more about the stage of work you're at. If you're planning to launch a brand, share your idea. If you already have a business and feel that something isn't working, let's identify the real problem.",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "honeypot": "Do not fill in this field",
+      "privacyPrefix": "I have read the ",
+      "privacyLink": "privacy policy",
+      "submit": "Send message",
+      "sending": "Sending...",
+      "success": "Message sent. We'll get back to you as soon as possible.",
+      "errors": {
+        "serviceNotConfigured": "The service is not configured.",
+        "invalidRequest": "The request is invalid.",
+        "requiredFields": "Please complete all fields.",
+        "invalidEmail": "The email address is invalid.",
+        "fieldTooLong": "One of the fields is too long.",
+        "consentRequired": "Please confirm that you have read the privacy policy.",
+        "sendFailed": "Message could not be sent. Please try again later."
+      }
+    }
+  }
+}

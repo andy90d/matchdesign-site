@@ -1,5 +1,10 @@
 {
+  
   "Home": {
+      "meta": {
+      "title": "Brand Design & Visual Strategy Studio | MATCHdesign",
+      "description": "Strategic brand design, visual identity, and communication studio. We help businesses shape their brand identity with purpose and vision."
+    },
     "hero": {
       "title": "Deep thinking. \nDesign that matches.",
       "text": "Strategy and design to give structure and consistency to your brand's communication.",
@@ -25,10 +30,10 @@
         "And what can change?"
       ],
       "closing": "Finding these answers lets us understand where to really step in.",
-      "cta": "Shall we start?"
+      "cta": "How We'll Work"
     },
     "form": {
-      "title": "We don't start from design. We start from questions."
+      "title": "Don't start from design. Start from questions."
     }
   }
 }

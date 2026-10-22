@@ -9,6 +9,7 @@ import Button from "@/components/button/button";
 import ArrowRight from "@/components/icons/arrow-right";
 import ImageSection from "@/components/image-section/image-section";
 import ContactForm from "@/components/contact-form/contact-form";
+import { getContactFormMessages } from "@/i18n/contact-form-messages";
 
 
 // ============================================
@@ -20,7 +21,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "HomeMetadata" });
+  const t = await getTranslations({ locale, namespace: "Home.meta" });
 
   return {
     title: t("title"),
@@ -42,6 +43,7 @@ export default async function Home({
 
   const t = await getTranslations({ locale, namespace: "Home" });
   const questions = t.raw("questions.items") as string[];
+  const formMessages = await getContactFormMessages();
 
   return (
     <div className="home-page">
@@ -115,7 +117,7 @@ export default async function Home({
         <div className="container">
           <h2>{t("form.title")}</h2>
 
-          <ContactForm />
+          <ContactForm messages={formMessages} />
         </div>
       </section>
 

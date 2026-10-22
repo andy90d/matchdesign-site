@@ -1,32 +1,41 @@
 import type { Metadata } from "next";
 import ContactForm from "@/components/contact-form/contact-form";
+import { getContactFormMessages } from "@/i18n/contact-form-messages";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Contact.meta" });
 
-export const metadata: Metadata = {
-  title: "MATCHdesign",
-  description:
-    "Costruiamo il sistema che protegge la coerenza del tuo brand nel tempo.",
-};
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
 
+export default async function ContactPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("Contact");
+  const formMessages = await getContactFormMessages();
 
-
-
-export default function Home() {
   return (
     <div className="home-page">
-
-            {/* --- Sezione form di contatto --- */}
       <section className="container section">
-        <h1 className="text-center">Contattami</h1>
-        <p> Raccontami di più sulla fase di lavoro in cui ti trovi.
-          Se stai progettando di lanciare un brand dimmi la tua idea.
-          Se hai già un azienda e percepisci che qualcosa non va cerchiamo di individuare il problema reale.
-        </p>
+        <h1 className="text-center">{t("title")}</h1>
+        <p>{t("intro")}</p>
         <div className="mt-md">
-          <ContactForm />
+          <ContactForm messages={formMessages} />
         </div>
       </section>
     </div>
-    
   );
 }

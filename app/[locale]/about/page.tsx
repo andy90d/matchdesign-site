@@ -10,7 +10,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "Metadata" });
+  const t = await getTranslations({ locale, namespace: "About.meta" });
 
   return {
     title: t("title"),
@@ -31,9 +31,10 @@ export default async function AboutPage({
     <div className="about-page">
       <AboutHero
          image={{ src: "/assets/images/TestAbout.jpg", alt: t("heroImageAlt"), objectPosition: "center" }}
+         cueLabel={t("scrollCue")}
       >
         <div className="container">
-          <h3>{t("todayTitle")}</h3>
+          <h1>{t("todayTitle")}</h1>
           <p>
             {t("todayText")}
             <span className="text-accent"> {t("todayHighlight")}</span>

@@ -1,5 +1,16 @@
 {
   "workTogether": {
+    "meta": {
+      "title": "Brand Identity Design & Corporate Logo Creation | MATCHdesign",
+      "description": "From strategic logo creation to complete brand identity evolution. Discover our brand design services tailored for growing businesses."
+    },
+    "hero": {
+      "title": "Not all problems require the same kind of intervention."
+    },
+    "intro": {
+      "title": "Every problem requires the right approach.",
+      "text": "Not all communication challenges are addressed in the same way. Sometimes it’s about clarifying things; other times, it’s about building something new. MATCHdesign combines strategy and design to help organizations make better decisions and turn them into cohesive communication systems."
+    },
     "OrientationCard": {
       "orientation-eyebrow": "01 / FACILITATION",
       "orientation-title": "Focus on the right problem",

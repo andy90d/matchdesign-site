@@ -1,0 +1,38 @@
+{
+  "Home": {
+    "hero": {
+      "title": "Capire a fondo. \nProgettare con criterio.",
+      "text": "Strategia e design per dare struttura e coerenza alla comunicazione del tuo brand.",
+      "cta": "Come posso aiutarti"
+    },
+    "intro": {
+      "title": "Il tuo brand. La tua comunicazione. La tua direzione.",
+      "subtitle": "Mantenere tutto coerente diventa sempre più difficile.",
+      "text": "Che tu stia mettendo le basi per il tuo brand o che tu stia cercando di farlo crescere, è importante che la tua comunicazione sia coerente e chiara. MATCHdesign ti aiuta a fare chiarezza, mettere ordine e costruire una comunicazione capace di crescere senza perdere la propria direzione.",
+      "cta": "Parliamo del tuo brand"
+    },
+    "quote": {
+      "text": "“Credo che prima di affrontare una sfida, sia importante avere una visione chiara del problema e delle possibili soluzioni.”",
+      "cta": "Chi sono"
+    },
+    "questions": {
+      "title": "Non partiamo dal design. Partiamo dalle domande.",
+      "items": [
+        "Cosa vogliamo ottenere?",
+        "Cosa ci impedisce di arrivarci?",
+        "Cosa non sta funzionando?",
+        "Cosa deve rimanere coerente?",
+        "E cosa può cambiare?"
+      ],
+      "closing": "Trovare queste risposte ci permette di capire dove intervenire davvero.",
+      "cta": "Come lavoreremo"
+    },
+    "form": {
+      "title": "Non partiamo dal design. Partiamo dalle domande."
+    },
+    "meta":{
+      "title": "Studio di Brand Design e Grafica Aziendale | MATCHdesign",
+      "description": "Studio di brand design, grafica aziendale e strategia di comunicazione. Aiutiamo aziende e PMI a progettare la propria identità di marca con criterio e visione."
+    }
+  }
+}

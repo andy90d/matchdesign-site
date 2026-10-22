@@ -1,0 +1,32 @@
+{
+  "Header": {
+    "home": "Home",
+    "about": "About",
+    "workTogether": "Services",
+    "contacts": "Contact",
+    "menu": "Menu",
+    "close": "Close",
+    "navLabel": "Main navigation"
+  },
+  "Footer": {
+    "badgeAlt": "MATCHdesign badge",
+    "description": "I'm a brand designer who helps organizations make better decisions and turn them into consistent communication systems.",
+    "sitemapTitle": "Sitemap",
+    "home": "Home",
+    "about": "About",
+    "workTogether": "Services",
+    "contact": "Contact",
+    "legalTitle": "Legal info",
+    "privacyTitle": "Privacy",
+    "copyright": "© {year} MATCHdesign. All rights reserved."
+  },
+  "Metadata": {
+    "title": "Brand Identity Systems for Founders and Professionals",
+    "description": "We build a system that safeguards your brand's consistency over time."
+  },
+  "Buttons": {
+    "workTogether": {
+      "start": "Where do we start?"
+    }
+  }
+}

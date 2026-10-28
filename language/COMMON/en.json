@@ -6,7 +6,8 @@
     "contacts": "Contact",
     "menu": "Menu",
     "close": "Close",
-    "navLabel": "Main navigation"
+    "navLabel": "Main navigation",
+    "portfolio": "Portfolio"
   },
   "Footer": {
     "badgeAlt": "MATCHdesign badge",
@@ -23,6 +24,10 @@
   "Metadata": {
     "title": "Brand Identity Systems for Founders and Professionals",
     "description": "We build a system that safeguards your brand's consistency over time."
+  },
+  "ErrorPage": {
+    "errorMessage1": "Coming soon",
+    "portfolioLink": "Check previous work at"
   },
   "Buttons": {
     "workTogether": {

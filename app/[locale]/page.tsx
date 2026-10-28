@@ -106,7 +106,7 @@ export default async function Home({
         </p>
         <p className="mt-md">{t("questions.closing")}</p>
 
-        <Button href="/contact" iconEnd={<ArrowRight />} className="mt-md">
+        <Button href="/work-together" iconEnd={<ArrowRight />} className="mt-md">
           {t("questions.cta")}
         </Button>
       </section>

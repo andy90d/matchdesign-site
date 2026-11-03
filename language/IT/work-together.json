@@ -13,15 +13,15 @@
     },
     "OrientationCard": {
       "orientation-eyebrow": "01 / ORIENTAMENTO",
-      "orientation-title": "Capire meglio il problema",
-      "orientation-text": "Facilito la comprensione delle situazioni complesse, aiutando le persone coinvolte a mettere a fuoco il problema, condividere punti di vista e riconoscere ciò che conta davvero.",
-      "orientation-note": "Dalla confusione a una comprensione condivisa."
+      "orientation-title": "Capire prima di decidere.",
+      "orientation-text": "Aiutare le organizzazioni a comprendere le proprie sfide di comunicazione, individuare le priorità e valutare il problema prima di intervenire.",
+      "orientation-note": "Facilitazione · Analisi · Supporto alle decisioni"
     },
     "StrategyCard": {
-      "strategy-eyebrow": "02 / STRATEGIA",
-      "strategy-title": "Definire una direzione.",
-      "strategy-text": "Analizzo il contesto e sviluppo criteri, priorità e principi per guidare le decisioni di comunicazione del brand.",
-      "strategy-note": "Dalla comprensione a una direzione strategica."
+      "strategy-eyebrow": "02 / AUTONOMIA",
+      "strategy-title": "Progettare per continuare.",
+      "strategy-text": "Sviluppare strumenti, regole e competenze che permettano all'organizzazione di gestire e mantenere coerente la propria comunicazione nel tempo.",
+      "strategy-note": "Design system · Template · Training"
     },
     "DesignCard": {
       "design-eyebrow": "03 / DESIGN",

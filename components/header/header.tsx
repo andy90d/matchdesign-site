@@ -15,7 +15,6 @@ import styles from "./header.module.css";
 // ============================================
 const NAV_ITEMS = [
   { key: "home", href: "/" },
-  { key: "about", href: "/about" },
   { key: "workTogether", href: "/work-together" },
   { key: "portfolio", href: "/error-page" },
   { key: "contacts", href: "/contact" },

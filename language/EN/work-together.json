@@ -11,20 +11,25 @@
       "title": "Every problem requires the right approach.",
       "text": "Not all communication challenges are addressed in the same way. Sometimes it’s about clarifying things; other times, it’s about building something new. MATCHdesign combines strategy and design to help organizations make better decisions and turn them into cohesive communication systems."
     },
+    "cta": {
+      "title": "Don't know where to start? Let's talk.",
+      "text": "If you want to discuss your communication challenges, I can help you identify the right approach and the best way to move forward.",
+      "button": "Contact me"
+    },
     "OrientationCard": {
       "orientation-eyebrow": "01 / Orientation",
       "orientation-title": "Understand before deciding",
-      "orientation-text": "I help organizations make sense of their communication challenges, identify priorities, and better understand the problem before taking action.",
+      "orientation-text": "I help organizations make sense of their communication challenges, identify priorities, and understand the problem before taking action.",
       "orientation-note": "Facilitation · Analysis · Decision support"
     },
-    "StrategyCard": {
-      "strategy-eyebrow": "02 / Autonomy",
-      "strategy-title": "Design to keep moving forward.",
-      "strategy-text": "I develop tools, guidelines, and skills that enable organizations to manage and maintain consistent brand communication over time.",
-      "strategy-note": "Design systems · Templates · Training"
+    "AutonomyCard": {
+      "autonomy-eyebrow": "03 / Autonomy",
+      "autonomy-title": "Design to keep moving forward.",
+      "autonomy-text": "I develop tools, guidelines, and skills that enable organizations to manage and maintain consistent brand communication over time.",
+      "autonomy-note": "Design systems · Templates · Training"
     },
     "DesignCard": {
-      "design-eyebrow": "03 / DESIGN",
+      "design-eyebrow": "02 / DESIGN",
       "design-title": "Give shape to decisions.",
       "design-text": "I translate needs and objectives into visual identities, communication systems, and tangible tools that bring clarity and consistency to your brand.",
       "design-note": "Brand identity · Graphic design · Communication"

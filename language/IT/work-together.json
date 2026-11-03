@@ -17,14 +17,19 @@
       "orientation-text": "Aiutare le organizzazioni a comprendere le proprie sfide di comunicazione, individuare le priorità e valutare il problema prima di intervenire.",
       "orientation-note": "Facilitazione · Analisi · Supporto alle decisioni"
     },
-    "StrategyCard": {
-      "strategy-eyebrow": "02 / AUTONOMIA",
-      "strategy-title": "Progettare per continuare.",
-      "strategy-text": "Sviluppare strumenti, regole e competenze che permettano all'organizzazione di gestire e mantenere coerente la propria comunicazione nel tempo.",
-      "strategy-note": "Design system · Template · Training"
+      "cta": {
+      "title": "Non sai da dove iniziare? Parliamone.",
+      "text": "Se vuoi discutere delle tue sfide di comunicazione, posso aiutarti a identificare il giusto approccio e il miglior modo per procedere.",
+      "button": "Contattami"
+    },
+    "AutonomyCard": {
+      "autonomy-eyebrow": "03 / AUTONOMIA",
+      "autonomy-title": "Progettare per continuare.",
+      "autonomy-text": "Sviluppare strumenti, regole e competenze che permettano all'organizzazione di gestire e mantenere coerente la propria comunicazione nel tempo.",
+      "autonomy-note": "Design system · Template · Training"
     },
     "DesignCard": {
-      "design-eyebrow": "03 / DESIGN",
+      "design-eyebrow": "02 / DESIGN",
       "design-title": "Dare forma alle decisioni.",
       "design-text": "Traduco le esigenze e la direzione del brand in identità visive, sistemi e strumenti di comunicazione concreti, coerenti e utilizzabili nel tempo.",
       "design-note": "Dalla direzione a un sistema concreto."

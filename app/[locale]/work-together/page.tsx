@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import ImageSection from "@/components/image-section/image-section";
 import Card from "@/components/card/card";
 import OrientationIcon from "@/components/icons/orientation-icon";
-import StrategyIcon from "@/components/icons/strategy-icon";
 import DesignIcon from "@/components/icons/design-icon";
+import AutonomyIcon from "@/components/icons/autonomy-icon";
 import Button from "@/components/button/button";
 import ArrowRight from "@/components/icons/arrow-right";
 import Columns from "@/components/layout/Columns";
@@ -43,18 +43,18 @@ const services = [
     note: t("OrientationCard.orientation-note"),
   },
   {
-    icon: <StrategyIcon />,
-    eyebrow: t("StrategyCard.strategy-eyebrow"),
-    title: t("StrategyCard.strategy-title"),
-    text: t("StrategyCard.strategy-text"),
-    note: t("StrategyCard.strategy-note"),
-  },
-  {
     icon: <DesignIcon />,
     eyebrow: t("DesignCard.design-eyebrow"),
     title: t("DesignCard.design-title"),
     text: t("DesignCard.design-text"),
     note: t("DesignCard.design-note"),
+  },
+  {
+    icon: <AutonomyIcon />,
+    eyebrow: t("AutonomyCard.autonomy-eyebrow"),
+    title: t("AutonomyCard.autonomy-title"),
+    text: t("AutonomyCard.autonomy-text"),
+    note: t("AutonomyCard.autonomy-note"),
   },
 ];
   return (
@@ -87,9 +87,11 @@ const services = [
   </Columns>
 </div>
 
-    <section className="container button-center mt-sm mb-lg">
-      <Button href="/contact" iconEnd={<ArrowRight />} className="mt-md">
-      {buttonT("start")}
+    <section className="container text-fmicro mt-lg mb-lg">
+      <h2>{t("cta.title")}</h2>
+      <p className="text-fmicro">{t("cta.text")}</p>
+      <Button href="/contact" iconEnd={<ArrowRight />} className="button-center mt-md">
+      {t("cta.button")}
       </Button>
     </section>
     

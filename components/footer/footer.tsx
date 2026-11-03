@@ -21,7 +21,7 @@ const SITEMAP = [
 
 const LEGAL_INFO = [
   "MATCHdesign di Andrea Sabolo",
-  "P.IVA 00000000000",
+  "P.IVA 12161000018",
   "C.F. SBLNDR90L13E379W",
   "Via Mombarone 5, Ivrea (TO), Italia",
 ];
